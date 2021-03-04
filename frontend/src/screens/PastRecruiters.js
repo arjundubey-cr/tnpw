@@ -10,7 +10,13 @@ const PastRecruiters = () => {
     }
     fetchRecruiters()
   }, [])
-  return <div>{{}}</div>
+  return (
+    <div>
+      {recruiters.map((value) => (
+        <div>{value.name}</div>
+      ))}
+    </div>
+  )
 }
 
 export default PastRecruiters

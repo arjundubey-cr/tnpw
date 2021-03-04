@@ -1,6 +1,10 @@
 const express = require('express')
-const app = express()
+const dotenv = require('dotenv')
 const recruiters = require('./data/recruiters')
+
+dotenv.config()
+
+const app = express()
 
 app.get('/', (req, res) => {
   res.send('API is running... ')
