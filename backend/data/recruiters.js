@@ -16,4 +16,4 @@ const recruiters = [
   },
 ]
 
-module.exports = recruiters
+export default recruiters
