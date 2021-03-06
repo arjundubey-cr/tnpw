@@ -3,6 +3,8 @@ import dotenv from 'dotenv'
 import connectDB from './config/db.js'
 import recruiters from './data/recruiters.js'
 
+import recruiterRoutes from './routes/recruiterRoutes'
+
 dotenv.config()
 
 connectDB()
@@ -11,10 +13,6 @@ const app = express()
 
 app.get('/', (req, res) => {
   res.send('API is running... ')
-})
-
-app.get('/api/recruiters', (req, res) => {
-  res.json(recruiters)
 })
 
 const PORT = process.env.PORT || 5500
