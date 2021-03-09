@@ -16,6 +16,6 @@ const recruiterSchema = mongoose.Schema(
   }
 )
 
-const Recruiters = mongoose.model('recruiters', recruiterSchema)
+const Recruiter = mongoose.model('recruiters', recruiterSchema)
 
-export default Recruiters
+export default Recruiter

@@ -5,26 +5,24 @@ const HomeScreen = () => {
     <div>
       <h1>Welcome to Training and Placement Cell</h1>
       <h5>
-        FOET, University of Lucknow has been critically acclaimed across borders
-        with its renowned alumni holding international positions. It is now
-        recognized as the No.1 Educational Institute of India**. The foundation
-        stone of IIT Delhi was laid in 1959 with the collaboration of UK
-        Government and the Federation of British Industries in London. Getting
-        its first admission in 1961 and being recognised as Institute of
-        national importance in 1963, IIT Delhi has witnessed unprecedented
-        success across various fields, not limited to engineering — even though
-        it is quite young as compared to some of the global universities. IIT
-        Delhi offers rigorous courses and vast exposure through multivariate
-        extra- curricular and co-curricular activities. Besides, students are
-        skilled with social skills along with technical expertise. In
-        contemporary times, these students work in multi-faceted domains like on
-        roles as scientists, designers, technologists, business managers,
-        entrepreneurs, etc. Also, several alumni has transcended from their
-        original disciplines to another fields of administrative services,
-        active politics, NGOs, etc. IITians are significantly contributing in
-        nation building and to the technological expansion and industrial
-        developments around the globe. The institution, in itself, is ranked
-        amongst the best in the world.
+        The Faculty of Engineering and Technology was re-established as one of
+        the Faculties of the University of Lucknow in 2017 with the aim of
+        becoming a pioneer in the field of technical education. The Faculty has
+        five branches of Engineering,i.e., Civil, Electrical, Mechanical,
+        Electronics & Communication, and Computer Science & Engineering. With an
+        intake of 90 students in Computer Science & Engineering and 60 students
+        in each of the other four departments. The first batch of students took
+        admission through UPSEE-2017, and all the seats filled on day one of the
+        counseling. The classes started as scheduled and are being run smoothly
+        with all the desired infrastructural and academic facilities in place.
+      </h5>
+      <h5>
+        FoET, University of Lucknow offers rigorous courses and vast exposure
+        through multivariate extra- curricular and co-curricular activities.
+        Besides, students are skilled with social skills along with technical
+        expertise. In contemporary times, these students work in multi-faceted
+        domains like on roles as scientists, designers, technologists, business
+        managers, entrepreneurs, etc.
       </h5>
     </div>
   )

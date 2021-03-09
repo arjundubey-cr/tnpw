@@ -1,9 +1,8 @@
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import users from './data/users.js'
-import recruiters from './data/recruiters.js'
+import recruiters from './data/ourRecruiters.js'
 import User from './models/userModel.js'
-import Recruiter from './models/recruiterModel.js'
 import connectDB from './config/db.js'
 import Recruiters from './models/recruiterModel.js'
 
