@@ -1,72 +1,45 @@
 import React from 'react'
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
-const Header = () => {
+import { makeStyles } from '@material-ui/core/styles'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 2,
+    marginTop: theme.spacing(1),
+  },
+}))
+
+export default function ButtonAppBar() {
+  const classes = useStyles()
+
   return (
-    <header>
-      <Navbar bg='dark' variant='dark' expand='lg'>
-        <Container>
-          <LinkContainer to='/'>
-            <Navbar.Brand>TnP FoET</Navbar.Brand>
-          </LinkContainer>
-          <Navbar.Toggle aria-controls='basic-navbar-nav' />
-          <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='ml-auto'>
-              <NavDropdown title='FoET, LU' id='basic-nav-dropdown'>
-                <LinkContainer to='/students'>
-                  <NavDropdown.Item>Students</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to='/academics'>
-                  <NavDropdown.Item>Academics</NavDropdown.Item>
-                </LinkContainer>
-              </NavDropdown>
-              <NavDropdown title='Downloads' id='basic-nav-dropdown'>
-                <LinkContainer to='/brochures'>
-                  <NavDropdown.Item>Brochures</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to='/documents'>
-                  <NavDropdown.Item>Documents</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to='/guidelines'>
-                  <NavDropdown.Item>Guidelines</NavDropdown.Item>
-                </LinkContainer>
-              </NavDropdown>
-              <NavDropdown title='Team' id='basic-nav-dropdown'>
-                <LinkContainer to='/administration'>
-                  <NavDropdown.Item>Administration</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to='/studentteam'>
-                  <NavDropdown.Item>Student Team</NavDropdown.Item>
-                </LinkContainer>
-              </NavDropdown>
-              <NavDropdown title='For Students' id='basic-nav-dropdown'>
-                <LinkContainer to='/studentlogin'>
-                  <NavDropdown.Item>Login</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to='/faq'>
-                  <NavDropdown.Item>FAQ</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to='/alumni'>
-                  <NavDropdown.Item>Alumni</NavDropdown.Item>
-                </LinkContainer>
-              </NavDropdown>
-              <NavDropdown title='For Recriuters' id='basic-nav-dropdown'>
-                <LinkContainer to='/contactus'>
-                  <NavDropdown.Item>Contact Us</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to='/hiringproc'>
-                  <NavDropdown.Item>Hiring Procedure</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to='/pastrecruiters'>
-                  <NavDropdown.Item>Past Recruiters</NavDropdown.Item>
-                </LinkContainer>
-              </NavDropdown>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </header>
+    <div className={classes.root}>
+      <AppBar position='static'>
+        <Toolbar>
+          <IconButton
+            edge='start'
+            className={classes.menuButton}
+            color='inherit'
+            aria-label='menu'>
+            <MenuIcon />
+          </IconButton>
+          <Typography variant='h5' className={classes.title}>
+            TnP | FOET
+          </Typography>
+          <Button color='inherit'>Login</Button>
+        </Toolbar>
+      </AppBar>
+    </div>
   )
 }
-
-export default Header

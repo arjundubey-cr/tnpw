@@ -1,7 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import connectDB from './config/db.js'
-
 import recruiterRoutes from './routes/recruiterRoutes.js'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 dotenv.config()
