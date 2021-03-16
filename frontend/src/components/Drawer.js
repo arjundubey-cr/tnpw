@@ -10,7 +10,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import InboxIcon from '@material-ui/icons/MoveToInbox'
 import MailIcon from '@material-ui/icons/Mail'
-
+import MenuIcon from '@material-ui/icons/Menu'
 const useStyles = makeStyles({
   list: {
     width: 250,
@@ -22,29 +22,26 @@ const useStyles = makeStyles({
 
 const TemporaryDrawer = () => {
   const classes = useStyles()
-  const [state, setState] = useState({
-    open: false,
-  })
+  const [state, setState] = useState(false)
 
-  const toggleDrawer = (anchor, open) => (event) => {
+  const toggleDrawer = (anchor) => (event) => {
     if (
       event.type === 'keydown' &&
       (event.key === 'Tab' || event.key === 'Shift')
     ) {
       return
     }
-
-    setState({ ...state, [anchor]: open })
+    setState(anchor)
   }
 
   const list = (anchor) => (
     <div
       className={clsx(classes.list, {
-        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+        [classes.fullList]: anchor === 'side',
       })}
       role='presentation'
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}>
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}>
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem button key={text}>
@@ -71,17 +68,13 @@ const TemporaryDrawer = () => {
 
   return (
     <div>
-      {['open'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}>
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
+      <React.Fragment>
+        <Button onClick={toggleDrawer(true)}>Left</Button>
+        <Drawer anchor='left' open='true' onClose={toggleDrawer(false)}>
+          {list('left')}
+        </Drawer>
+      </React.Fragment>
+      )
     </div>
   )
 }
