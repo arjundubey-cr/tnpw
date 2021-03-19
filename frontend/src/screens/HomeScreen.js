@@ -1,5 +1,6 @@
 import React from 'react'
-
+import { Card } from 'react-bootstrap'
+import THElogo from '../assets/images/THElogo.png'
 const HomeScreen = () => {
   return (
     <div>
@@ -24,6 +25,18 @@ const HomeScreen = () => {
         domains like on roles as scientists, designers, technologists, business
         managers, entrepreneurs, etc.
       </h5>
+      <br />
+      <div className='ranking-card'>
+        <Card style={{ width: '18rem' }} className='mx-auto text-center'>
+          <Card.Header>
+            {' '}
+            <strong>Amongst the</strong>{' '}
+          </Card.Header>
+          <Card.Img variant='top' src={THElogo}></Card.Img>
+          <Card.Title>Top 1000</Card.Title>
+          <Card.Text>Universities Globally</Card.Text>
+        </Card>
+      </div>
     </div>
   )
 }

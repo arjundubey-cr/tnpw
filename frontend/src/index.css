@@ -17,4 +17,12 @@ main {
   padding: 0 10px 0 10px !important;
   color: inherit !important;
   font-weight: 700 !important;
+  font-size: 15px;
+  outline: 0;
+}
+.nav-link:hover {
+  border-bottom: 1px solid #6ac47e;
+}
+.ranking-card .card .card-header {
+  background-color: #6ac47e;
 }
