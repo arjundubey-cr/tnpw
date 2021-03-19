@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import HomeScreen from './screens/HomeScreen'
 import PastRecruiters from './screens/PastRecruiters'
+import AcademicsScreen from './screens/AcademicsScreen'
 const App = () => {
   return (
     <Router>
@@ -12,6 +13,7 @@ const App = () => {
         <>
           <Route path='/' component={HomeScreen} exact />
           <Route path='/pastrecruiters' component={PastRecruiters} exact />
+          <Route path='/academics' component={AcademicsScreen} exact />
         </>
       </main>
       <Footer />
