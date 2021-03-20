@@ -10,6 +10,7 @@ html {
 }
 main {
   width: 90%;
+  color: #011936 !important;
   margin: auto;
   margin-top: 100px;
 }
@@ -20,9 +21,21 @@ main {
   font-size: 15px;
   outline: 0;
 }
-.nav-link:hover {
-  border-bottom: 1px solid #6ac47e;
+.nav-link::before,
+.nav-link::after {
+  position: relative;
+  transition: transform 0.5s ease;
+}
+.nav-link::before {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: darken(#0baad4, 10%);
+  transform: scaleX(0);
+}
+.nav-link:hover::before {
+  transform: scaleX(1);
 }
 .ranking-card .card .card-header {
-  background-color: #6ac47e;
+  background-color: #5c95ff;
 }

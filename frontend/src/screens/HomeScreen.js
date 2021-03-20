@@ -34,7 +34,9 @@ const HomeScreen = () => {
           </Card.Header>
           <Card.Img variant='top' src={THElogo}></Card.Img>
           <Card.Title>Top 1000</Card.Title>
-          <Card.Text>Universities Globally</Card.Text>
+          <Card.Text>
+            Universities Globally for Engineering and Technology
+          </Card.Text>
         </Card>
       </div>
     </div>
