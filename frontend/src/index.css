@@ -21,20 +21,29 @@ main {
   font-size: 15px;
   outline: 0;
 }
-.nav-link::before,
-.nav-link::after {
-  position: relative;
-  transition: transform 0.5s ease;
-}
-.nav-link::before {
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background: darken(#0baad4, 10%);
-  transform: scaleX(0);
-}
-.nav-link:hover::before {
-  transform: scaleX(1);
+@media all and (min-width: 992px) {
+  .navbar .nav-item .dropdown-menu {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    margin-top: 0;
+  }
+  .navbar .nav-item:hover .nav-link {
+    color: #fff;
+  }
+  .navbar .dropdown-menu {
+    top: 80%;
+    transform: rotateX(-75deg);
+    transform-origin: 0% 0%;
+  }
+  .navbar .nav-item:hover .dropdown-menu {
+    transition: 0.3s;
+    opacity: 1;
+    visibility: visible;
+    top: 100%;
+    transform: rotateX(0deg);
+  }
 }
 .ranking-card .card .card-header {
   background-color: #5c95ff;
