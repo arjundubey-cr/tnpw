@@ -15,32 +15,33 @@ const HomeScreen = () => {
           <Card.Img variant='top' src={THElogo}></Card.Img>
           <Card.Title>Top 1000</Card.Title>
           <Card.Text>
-            Universities Globally for Engineering and Technology
+            Universities Globally for <br /> Engineering and Technology
           </Card.Text>
         </Card>
       </div>
 
       <div>
-        The Faculty of Engineering and Technology was re-established as one of
-        the Faculties of the University of Lucknow in 2017 with the aim of
-        becoming a pioneer in the field of technical education. The Faculty has
-        five branches of Engineering,i.e., Civil, Electrical, Mechanical,
-        Electronics & Communication, and Computer Science & Engineering. With an
-        intake of 90 students in Computer Science & Engineering and 60 students
-        in each of the other four departments. The first batch of students took
-        admission through UPSEE-2017, and all the seats filled on day one of the
-        counseling. The classes started as scheduled and are being run smoothly
-        with all the desired infrastructural and academic facilities in place.
+        The Faculty of Engineering and Technology was established in 2017 with
+        the aim of becoming a pioneer in the field of technical education. With
+        around 1600 students and 66 faculty members, in the three years since
+        its inception, FoET has slowly been carving a niche for itself.
+        <br />
+        Helmed by Prof. R.S. Gupta, an academician with fortitude and
+        experience, the Faculty runs five engineering departments, namely,
+        Computer Science &amp; Engineering, Civil Engineering, Mechanical
+        Engineering, Electronics & Communication Engineering and Electrical
+        Engineering.
+        <br />
+        In addition, we have the Department of Applied Sciences and Humanities,
+        catering to the needs of basic sciences and humanities useful for
+        budding technocrats. Our students are encouraged to make meaningful
+        contributions to society and engage in various activities. The Council
+        of Student Activities ensures that students can learn diffrent
+        perspective throught engagement, collaboration and innovation. Over
+        these three years, FoET has emerged as a diverse and exceptional
+        community which is fostering expertise, critical thinking and creativity
+        in its students.
       </div>
-      <div>
-        FoET, University of Lucknow offers rigorous courses and vast exposure
-        through multivariate extra- curricular and co-curricular activities.
-        Besides, students are skilled with social skills along with technical
-        expertise. In contemporary times, these students work in multi-faceted
-        domains like on roles as scientists, designers, technologists, business
-        managers, entrepreneurs, etc.
-      </div>
-      <br />
     </div>
   )
 }

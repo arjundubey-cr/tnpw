@@ -10,17 +10,16 @@ html {
 }
 main {
   width: 90%;
-  color: #011936 !important;
-  margin: auto;
-  margin-top: 100px;
+  margin: 50px auto;
+  color: #2c302e;
 }
 .nav-link {
-  padding: 0 10px 0 10px !important;
   color: inherit !important;
   font-weight: 700 !important;
   font-size: 15px;
   outline: 0;
 }
+
 @media all and (min-width: 992px) {
   .navbar .nav-item .dropdown-menu {
     display: block;
@@ -29,22 +28,27 @@ main {
     transition: 0.3s;
     margin-top: 0;
   }
-  .navbar .nav-item:hover .nav-link {
-    color: #fff;
-  }
+
   .navbar .dropdown-menu {
     top: 80%;
     transform: rotateX(-75deg);
     transform-origin: 0% 0%;
   }
   .navbar .nav-item:hover .dropdown-menu {
-    transition: 0.3s;
-    opacity: 1;
-    visibility: visible;
-    top: 100%;
-    transform: rotateX(0deg);
+    transition: 0.3s !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    top: 100% !important;
+    transform: rotateX(0deg) !important;
   }
 }
 .ranking-card .card .card-header {
   background-color: #5c95ff;
+}
+.heading-button {
+  background-color: #bf4342 !important;
+  border-radius: 0% !important;
+  border-color: #bf4342 !important;
+  font-weight: 900;
+  font-size: 35px !important;
 }
