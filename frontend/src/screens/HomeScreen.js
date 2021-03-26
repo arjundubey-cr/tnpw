@@ -7,7 +7,9 @@ const HomeScreen = () => {
       <h1>Welcome to Training and Placement Cell</h1>
 
       <div className='ranking-card'>
-        <Card style={{ width: '18rem' }} className='mx-auto text-center mb-5 '>
+        <Card
+          style={{ width: '18rem' }}
+          className='mx-auto text-center mb-5 mt-5'>
           <Card.Header>
             {' '}
             <strong>Amongst the</strong>{' '}
