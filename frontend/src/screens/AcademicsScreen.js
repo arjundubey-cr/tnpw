@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 
 const AcademicsScreen = () => {
   return (
@@ -18,6 +18,34 @@ const AcademicsScreen = () => {
         career development and campus engagement. Our students have the
         eagerness to learn and ameliorate their skills with practical
         application.
+      </div>
+      <div className='department-list d-flex justify-content-between'>
+        <Card>
+          <Card.Header>Department Name</Card.Header>
+          <Card.Body>
+            <Card.Title>
+              Department of Computer Science and Engineering
+            </Card.Title>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>Disciplines</Card.Header>
+          <Card.Body>
+            <Card.Text>
+              B.Tech in Computer Science and Engineering <br />
+              Bachelors in Computer Applications(BCA) <br />
+              Masters in Computer Application(MCA)
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>Department Name</Card.Header>
+          <Card.Body>
+            <Card.Title>
+              Department of Computer Science and Engineering
+            </Card.Title>
+          </Card.Body>
+        </Card>
       </div>
     </div>
   )
