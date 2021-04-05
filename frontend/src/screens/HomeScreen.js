@@ -3,8 +3,10 @@ import { Card } from 'react-bootstrap'
 import THElogo from '../assets/images/THElogo.png'
 const HomeScreen = () => {
   return (
-    <div>
-      <h1>Welcome to Training and Placement Cell</h1>
+    <div className='container'>
+      <h1 className='mt-5 text-center'>
+        Welcome to Training and Placement Cell
+      </h1>
 
       <div className='ranking-card'>
         <Card

@@ -9,8 +9,6 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 main {
-  width: 90%;
-  margin: 50px auto;
   color: #2c302e;
 }
 .nav-link {
@@ -51,4 +49,21 @@ main {
   border-color: #bf4342 !important;
   font-weight: 900;
   font-size: 35px !important;
+}
+
+.department-list {
+  margin-top: 15px;
+}
+.department-list .card {
+  border: 1px dotted red !important;
+}
+
+.department-list .department-name-card {
+  width: 250px !important;
+}
+.department-list .displines-name-card {
+  width: 300px !important;
+}
+.department-list .contact-person-card {
+  width: 250px !important;
 }
