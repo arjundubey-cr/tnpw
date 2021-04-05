@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Card } from 'react-bootstrap'
+import axios from 'axios'
 
 const AcademicsScreen = () => {
+  const [details, setDetails] = useState([])
+
+  useEffect(() => {
+    const departmentDetails = async () => {
+      const { data } = await axios('/api/departmentdetails')
+      setDetails(details)
+      console.log(details)
+    }
+
+    departmentDetails()
+  }, [])
+
   return (
     <div>
       <Button
