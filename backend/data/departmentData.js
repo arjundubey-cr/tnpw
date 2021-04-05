@@ -6,6 +6,10 @@ const departmentData = [
       'Bachelors in Computer Application',
       'Masters in Computer Application',
     ],
+    contactPerson: {
+      name: 'Dr. Himanshu Pandey',
+      email: 'hp1010@gmail.com',
+    },
   },
 ]
 

@@ -8,10 +8,9 @@ const AcademicsScreen = () => {
   useEffect(() => {
     const departmentDetails = async () => {
       const { data } = await axios('/api/departmentdetails')
-      setDetails(details)
+      setDetails(data)
       console.log(details)
     }
-
     departmentDetails()
   }, [])
 
@@ -32,33 +31,42 @@ const AcademicsScreen = () => {
         eagerness to learn and ameliorate their skills with practical
         application.
       </div>
-      <div className='department-list d-flex justify-content-between'>
-        <Card>
-          <Card.Header>Department Name</Card.Header>
-          <Card.Body>
-            <Card.Title>
-              Department of Computer Science and Engineering
-            </Card.Title>
-          </Card.Body>
-        </Card>
-        <Card>
-          <Card.Header>Disciplines</Card.Header>
-          <Card.Body>
-            <Card.Text>
-              B.Tech in Computer Science and Engineering <br />
-              Bachelors in Computer Applications(BCA) <br />
-              Masters in Computer Application(MCA)
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <Card>
-          <Card.Header>Department Name</Card.Header>
-          <Card.Body>
-            <Card.Title>
-              Department of Computer Science and Engineering
-            </Card.Title>
-          </Card.Body>
-        </Card>
+      <div>
+        {details.map((value) => (
+          <div className='department-list d-flex justify-content-between'>
+            <Card>
+              <Card.Header>Department Name</Card.Header>
+              <Card.Body>
+                <Card.Title>{value.departmentName}</Card.Title>
+              </Card.Body>
+            </Card>
+            <Card>
+              <Card.Header>Disciplines</Card.Header>
+              <Card.Body>
+                <Card.Text>
+                  {value.disciplines.map((disciplinesName) => (
+                    <div>
+                      {disciplinesName} <br />
+                    </div>
+                  ))}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+            <Card>
+              <Card.Header>Contact Person</Card.Header>
+              <Card.Body>
+                <Card.Text>
+                  <div>
+                    {value.contactPerson.name}
+                    <br />
+                    {value.contactPerson.email}
+                    <br />
+                  </div>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
+        ))}
       </div>
     </div>
   )

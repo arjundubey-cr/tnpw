@@ -11,19 +11,10 @@ const departmentSchema = mongoose.Schema({
       required: true,
     },
   ],
-
-  contactPerson: [
-    {
-      contactName: {
-        type: String,
-        required: true,
-      },
-      contactEmail: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+  contactPerson: {
+    type: Map,
+    of: String,
+  },
 })
 
 const departmentDetails = mongoose.model('Department', departmentSchema)
