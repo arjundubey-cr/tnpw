@@ -7,9 +7,8 @@ const departmentSchema = mongoose.Schema({
   },
   disciplines: [
     {
-      displineName: {
-        type: String,
-      },
+      type: String,
+      required: true,
     },
   ],
 
