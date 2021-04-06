@@ -10,6 +10,7 @@ html {
 }
 main {
   color: #2c302e;
+  font-size: 18px;
 }
 .nav-link {
   color: inherit !important;
@@ -59,10 +60,10 @@ main {
 }
 
 .department-list .department-name-card {
-  width: 250px !important;
+  width: 350px !important;
 }
 .department-list .displines-name-card {
-  width: 300px !important;
+  width: 400px !important;
 }
 .department-list .contact-person-card {
   width: 250px !important;
