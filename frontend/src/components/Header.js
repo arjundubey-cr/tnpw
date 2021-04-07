@@ -8,7 +8,7 @@ const Header = () => {
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>
-              <h4>TnP FoET</h4>
+              <h4>TnP | FoET</h4>
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -42,7 +42,7 @@ const Header = () => {
                 </LinkContainer>
               </NavDropdown>
               <NavDropdown title='For Students' id='basic-nav-dropdown'>
-                <LinkContainer to='/studentlogin'>
+                <LinkContainer to='/login'>
                   <NavDropdown.Item>Login</NavDropdown.Item>
                 </LinkContainer>
                 <LinkContainer to='/faq'>
