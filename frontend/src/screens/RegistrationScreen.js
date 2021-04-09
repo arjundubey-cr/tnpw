@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Form, Button, Row, Col, Alert } from 'react-bootstrap'
+import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../components/FormContainer'
-import { login } from '../redux/authentication/authenticationAction'
 import Message from '../components/Message'
 import { register } from '../redux/userRegistration/userRegistrationAction'
 
