@@ -1,14 +1,23 @@
 import React from 'react'
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../redux/authentication/authenticationAction'
 const Header = () => {
+  const dispatch = useDispatch()
+
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+  const logoutHandler = () => {
+    dispatch(logout())
+  }
   return (
     <header>
       <Navbar bg='light' variant='light' expand='lg'>
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>
-              <h4>TnP | FoET</h4>
+              <h4>TnP | FoET </h4>
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -42,9 +51,18 @@ const Header = () => {
                 </LinkContainer>
               </NavDropdown>
               <NavDropdown title='For Students' id='basic-nav-dropdown'>
-                <LinkContainer to='/login'>
-                  <NavDropdown.Item>Login</NavDropdown.Item>
-                </LinkContainer>
+                {userInfo ? (
+                  <div>
+                    <NavDropdown.Item>Profile</NavDropdown.Item>
+                    <NavDropdown.Item onClick={logoutHandler}>
+                      LogOut
+                    </NavDropdown.Item>
+                  </div>
+                ) : (
+                  <LinkContainer to='/login'>
+                    <NavDropdown.Item>Login</NavDropdown.Item>
+                  </LinkContainer>
+                )}
                 <LinkContainer to='/faq'>
                   <NavDropdown.Item>FAQ</NavDropdown.Item>
                 </LinkContainer>

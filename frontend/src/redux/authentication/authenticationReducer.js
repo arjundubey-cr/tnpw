@@ -5,7 +5,7 @@ import {
   USER_LOGOUT,
 } from './authenticationType'
 
-const authReducer = (state = {}, action) => {
+export const authReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_LOGIN_REQUEST:
       return { loading: true }

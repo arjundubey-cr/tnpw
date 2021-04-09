@@ -6,19 +6,21 @@ import generateToken from '../utils/generateTokens.js'
 //@route POST /api/user/login
 //@access Public
 const authUser = asyncHandler(async (req, res) => {
-  const { email, password } = req.body
-  const user = await User.findOne({ email })
+  const { rollNumber, password } = req.body
+  const user = await User.findOne({ rollNumber })
+  console.log(user)
   if (user && (await user.matchPassword(password))) {
     res.json({
       _id: user._id,
       name: user.name,
       email: user.email,
+      rollNumber: user.rollNumber,
       isAdmin: user.isAdmin,
       token: generateToken(user._id),
     })
   } else {
     res.status(401)
-    throw new Error('Invalid Email or Password')
+    throw new Error('Invalid Roll Number or Password')
   }
 })
 
@@ -33,8 +35,8 @@ const getUserProfile = asyncHandler(async (req, res) => {
 //@route POST /api/users
 //@access Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body
-  const userExists = await User.findOne({ email })
+  const { name, email, rollNumber, password } = req.body
+  const userExists = await User.findOne({ rollNumber })
   if (userExists) {
     res.status(400)
     throw new Error('User already exists')
@@ -42,6 +44,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const user = await User.create({
     name,
     email,
+    rollNumber,
     password,
   })
   if (user) {
@@ -49,6 +52,7 @@ const registerUser = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      rollNumber: user.rollNumber,
       isAdmin: user.isAdmin,
       token: generateToken(user._id),
     })

@@ -33,7 +33,6 @@ const destroyData = async () => {
   try {
     await User.deleteMany()
     await Recruiters.deleteMany()
-
     console.log('Data Destroyed')
     process.exit()
   } catch (err) {
