@@ -4,10 +4,12 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { authReducer } from './redux/authentication/authenticationReducer'
 import { userRegistrationReducer } from './redux/userRegistration/userRegistrationReducer'
 import { recruiterListReducer } from './redux/recruiterList/recruiterListReducer'
+import { departmentListReducer } from './redux/departmentList/departmentListReducer'
 const reducer = combineReducers({
   userLogin: authReducer,
   userRegister: userRegistrationReducer,
   recruiterList: recruiterListReducer,
+  departmentList: departmentListReducer,
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

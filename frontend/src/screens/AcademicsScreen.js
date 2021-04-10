@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Button, Card } from 'react-bootstrap'
-import axios from 'axios'
-
+import Message from '../components/Message'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchDepartment } from '../redux/departmentList/departmentListAction'
 const AcademicsScreen = () => {
-  const [details, setDetails] = useState([])
+  const dispatch = useDispatch()
+  const departmentList = useSelector((state) => state.departmentList)
+  const { loading, error, data } = departmentList
 
   // this useEffect fetches data about departmentName, disciplinesName and contactPerson for each department
   useEffect(() => {
-    const departmentDetails = async () => {
-      const { data } = await axios('/api/departmentdetails')
-      setDetails(data)
-    }
-    departmentDetails()
-  }, [details])
+    dispatch(fetchDepartment())
+  }, [dispatch])
 
   return (
     <div>
@@ -32,47 +31,53 @@ const AcademicsScreen = () => {
         application.
       </div>
       <div className='container'>
-        {details.map((value) => (
-          <div className='department-list d-flex justify-content-between'>
-            <Card className='department-name-card'>
-              <Card.Header className='text-center font-weight-bold'>
-                Department Name
-              </Card.Header>
-              <Card.Body>
-                <Card.Title>{value.departmentName}</Card.Title>
-              </Card.Body>
-            </Card>
-            <Card className='displines-name-card'>
-              <Card.Header className='text-center font-weight-bold'>
-                Disciplines
-              </Card.Header>
-              <Card.Body>
-                <Card.Text>
-                  {value.disciplines.map((disciplinesName) => (
+        {data ? (
+          data.map((value) => (
+            <div className='department-list d-flex justify-content-between'>
+              <Card className='department-name-card'>
+                <Card.Header className='text-center font-weight-bold'>
+                  Department Name
+                </Card.Header>
+                <Card.Body>
+                  <Card.Title>{value.departmentName}</Card.Title>
+                </Card.Body>
+              </Card>
+              <Card className='displines-name-card'>
+                <Card.Header className='text-center font-weight-bold'>
+                  Disciplines
+                </Card.Header>
+                <Card.Body>
+                  <Card.Text>
+                    {value.disciplines.map((disciplinesName) => (
+                      <div>
+                        {disciplinesName} <br />
+                      </div>
+                    ))}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+              <Card className='contact-person-card'>
+                <Card.Header className='text-center font-weight-bold'>
+                  Contact Person
+                </Card.Header>
+                <Card.Body>
+                  <Card.Text>
                     <div>
-                      {disciplinesName} <br />
+                      {value.contactPerson.name}
+                      <br />
+                      {value.contactPerson.email}
+                      <br />
                     </div>
-                  ))}
-                </Card.Text>
-              </Card.Body>
-            </Card>
-            <Card className='contact-person-card'>
-              <Card.Header className='text-center font-weight-bold'>
-                Contact Person
-              </Card.Header>
-              <Card.Body>
-                <Card.Text>
-                  <div>
-                    {value.contactPerson.name}
-                    <br />
-                    {value.contactPerson.email}
-                    <br />
-                  </div>
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </div>
-        ))}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </div>
+          ))
+        ) : loading ? (
+          <Message variant='info'>Loading...</Message>
+        ) : (
+          error && <Message variant='danger'>{error}</Message>
+        )}
       </div>
     </div>
   )
