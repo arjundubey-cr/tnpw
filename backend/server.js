@@ -31,6 +31,6 @@ app.use(errorHandler)
 
 const PORT = process.env.PORT || 5500
 app.listen(
-  5000,
+  PORT,
   console.log(`Server running on port ${PORT} in ${process.env.NODE_ENV} mode`)
 )
