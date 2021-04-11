@@ -7,7 +7,7 @@ import { login } from '../redux/authentication/authenticationAction'
 import Message from '../components/Message'
 
 const LoginScreen = ({ location, history }) => {
-  const [email, setEmail] = useState('')
+  const [rollNumber, setRollNumber] = useState('')
   const [password, setPassword] = useState('')
 
   const dispatch = useDispatch()
@@ -25,7 +25,7 @@ const LoginScreen = ({ location, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    dispatch(login(email, password))
+    dispatch(login(rollNumber, password))
   }
 
   return (
@@ -35,12 +35,12 @@ const LoginScreen = ({ location, history }) => {
       {loading && <Message variant='info'>Loading...</Message>}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId='email'>
-          <Form.Label>Email Address</Form.Label>
+          <Form.Label>Roll Number</Form.Label>
           <Form.Control
-            type='email'
-            placeholder='Enter email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}></Form.Control>
+            type='string'
+            placeholder='Enter University Roll Number'
+            value={rollNumber}
+            onChange={(e) => setRollNumber(e.target.value)}></Form.Control>
         </Form.Group>
 
         <Form.Group controlId='password'>
