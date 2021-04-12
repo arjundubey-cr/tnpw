@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../redux/authentication/authenticationAction'
 const Header = () => {
   const dispatch = useDispatch()
-
+  const [expanded, setExpanded] = useState(false)
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
   const logoutHandler = () => {
@@ -13,14 +13,17 @@ const Header = () => {
   }
   return (
     <header>
-      <Navbar bg='light' variant='light' expand='lg'>
+      <Navbar bg='light' variant='light' expand='lg' expanded={expanded}>
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>
               <h4>TnP | FoET </h4>
             </Navbar.Brand>
           </LinkContainer>
-          <Navbar.Toggle aria-controls='basic-navbar-nav' />
+          <Navbar.Toggle
+            aria-controls='basic-navbar-nav'
+            onClick={() => setExpanded(expanded ? false : 'expanded')}
+          />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ml-auto'>
               <NavDropdown title='FoET, LU' id='basic-nav-dropdown'>
