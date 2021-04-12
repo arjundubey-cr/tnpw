@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Button, Card } from 'react-bootstrap'
+import { Alert, Card } from 'react-bootstrap'
 import Message from '../components/Message'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchDepartment } from '../redux/departmentList/departmentListAction'
@@ -15,14 +15,9 @@ const AcademicsScreen = () => {
 
   return (
     <div>
-      <Button
-        variant='primary'
-        size='lg'
-        block
-        disabled
-        className='heading-button font-weight-bolder'>
+      <Alert className='heading-button text-center font-weight-bolder'>
         Academics
-      </Button>
+      </Alert>
       <div className='container mt-3 font-size-large'>
         The Faculty of Engineering and Technology has a thriving atmosphere in
         its environment. We invest our energies heavily in academic rigour,
@@ -33,41 +28,43 @@ const AcademicsScreen = () => {
       <div className='container'>
         {data ? (
           data.map((value) => (
-            <div className='department-list d-flex justify-content-between'>
-              <Card className='department-name-card'>
+            <div className='department-list row  d-flex justify-content-between pb-5'>
+              <Card className='department-name-card col-md-6 col-lg-3 p-0'>
                 <Card.Header className='text-center font-weight-bold'>
                   Department Name
                 </Card.Header>
                 <Card.Body>
-                  <Card.Title>{value.departmentName}</Card.Title>
+                  <Card.Title className='text-center'>
+                    {value.departmentName}
+                  </Card.Title>
                 </Card.Body>
               </Card>
-              <Card className='displines-name-card'>
+              <Card className='displines-name-card col-md-5 col-lg-3 p-0'>
                 <Card.Header className='text-center font-weight-bold'>
                   Disciplines
                 </Card.Header>
                 <Card.Body>
                   <Card.Text>
                     {value.disciplines.map((disciplinesName) => (
-                      <div>
+                      <p>
                         {disciplinesName} <br />
-                      </div>
+                      </p>
                     ))}
                   </Card.Text>
                 </Card.Body>
               </Card>
-              <Card className='contact-person-card'>
+              <Card className='contact-person-card col-md-5  col-lg-3 p-0'>
                 <Card.Header className='text-center font-weight-bold'>
                   Contact Person
                 </Card.Header>
                 <Card.Body>
                   <Card.Text>
-                    <div>
+                    <p>
                       {value.contactPerson.name}
                       <br />
                       {value.contactPerson.email}
                       <br />
-                    </div>
+                    </p>
                   </Card.Text>
                 </Card.Body>
               </Card>

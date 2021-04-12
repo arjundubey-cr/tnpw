@@ -19,35 +19,13 @@ main {
   outline: 0;
 }
 
-@media all and (min-width: 992px) {
-  .navbar .nav-item .dropdown-menu {
-    display: block;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.3s;
-    margin-top: 0;
-  }
-
-  .navbar .dropdown-menu {
-    top: 80%;
-    transform: rotateX(-75deg);
-    transform-origin: 0% 0%;
-  }
-  .navbar .nav-item:hover .dropdown-menu {
-    transition: 0.3s !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    top: 100% !important;
-    transform: rotateX(0deg) !important;
-  }
-}
 .ranking-card .card .card-header {
   background-color: #5c95ff;
 }
 .heading-button {
-  background-color: #bf4342 !important;
+  background-color: #f4a261 !important;
   border-radius: 0% !important;
-  border-color: #bf4342 !important;
+  border-color: #f4a261 !important;
   font-weight: 900;
   font-size: 35px !important;
 }
@@ -60,11 +38,11 @@ main {
 }
 
 .department-list .department-name-card {
-  width: 350px !important;
+  width: 100% !important;
 }
 .department-list .displines-name-card {
-  width: 400px !important;
+  width: 100% !important;
 }
 .department-list .contact-person-card {
-  width: 250px !important;
+  width: 100% !important;
 }
