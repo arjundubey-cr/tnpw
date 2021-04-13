@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { Alert, Card } from 'react-bootstrap'
 import Message from '../components/Message'
 import { useDispatch, useSelector } from 'react-redux'
@@ -46,9 +46,9 @@ const AcademicsScreen = () => {
                 <Card.Body>
                   <Card.Text>
                     {value.disciplines.map((disciplinesName) => (
-                      <p>
+                      <>
                         {disciplinesName} <br />
-                      </p>
+                      </>
                     ))}
                   </Card.Text>
                 </Card.Body>
@@ -59,12 +59,12 @@ const AcademicsScreen = () => {
                 </Card.Header>
                 <Card.Body>
                   <Card.Text>
-                    <p>
+                    <>
                       {value.contactPerson.name}
                       <br />
                       {value.contactPerson.email}
                       <br />
-                    </p>
+                    </>
                   </Card.Text>
                 </Card.Body>
               </Card>

@@ -9,8 +9,9 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 main {
-  color: #2c302e;
+  color: #264653;
   font-size: 18px;
+  font-family: inherit;
 }
 .nav-link {
   color: inherit !important;
@@ -21,11 +22,12 @@ main {
 
 .ranking-card .card .card-header {
   background-color: #5c95ff;
+  color: white;
 }
 .heading-button {
-  background-color: #f4a261 !important;
+  background-color: #2a9d8f !important;
   border-radius: 0% !important;
-  border-color: #f4a261 !important;
+  border-color: #2a9d8f !important;
   font-weight: 900;
   font-size: 35px !important;
 }
@@ -36,7 +38,9 @@ main {
 .department-list .card {
   border: 1px dotted red !important;
 }
-
+.card-header {
+  background-color: #2a9d8f !important;
+}
 .department-list .department-name-card {
   width: 100% !important;
 }
@@ -45,4 +49,7 @@ main {
 }
 .department-list .contact-person-card {
   width: 100% !important;
+}
+.map {
+  border: none;
 }

@@ -1,11 +1,10 @@
 import React from 'react'
-import { Navbar, Nav, NavDropdown, Container, Button } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../redux/authentication/authenticationAction'
 const Header = () => {
   const dispatch = useDispatch()
-  const [expanded, setExpanded] = useState(false)
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
   const logoutHandler = () => {
@@ -13,17 +12,14 @@ const Header = () => {
   }
   return (
     <header>
-      <Navbar bg='light' variant='light' expand='lg' expanded={expanded}>
+      <Navbar bg='light' variant='light' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>
               <h4>TnP | FoET </h4>
             </Navbar.Brand>
           </LinkContainer>
-          <Navbar.Toggle
-            aria-controls='basic-navbar-nav'
-            onClick={() => setExpanded(expanded ? false : 'expanded')}
-          />
+          <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ml-auto'>
               <NavDropdown title='FoET, LU' id='basic-nav-dropdown'>
@@ -35,9 +31,11 @@ const Header = () => {
                 </LinkContainer>
               </NavDropdown>
               <NavDropdown title='Downloads' id='basic-nav-dropdown'>
-                <LinkContainer to='/brochures'>
-                  <NavDropdown.Item>Brochures</NavDropdown.Item>
-                </LinkContainer>
+                <>
+                  <NavDropdown.Item href='https://drive.google.com/file/d/1G1YPM_SJOeGPUsNA--H_d3zH1ncejP6x/view?usp=sharing'>
+                    Brochures
+                  </NavDropdown.Item>
+                </>
                 <LinkContainer to='/documents'>
                   <NavDropdown.Item>Documents</NavDropdown.Item>
                 </LinkContainer>
