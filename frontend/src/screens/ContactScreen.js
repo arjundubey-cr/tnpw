@@ -23,7 +23,7 @@ const ContactScreen = () => {
           <div className='col text-center align-items-center'>
             <Mail />
             <div className='font-weight-bold mb-2 mt-1'>Mail Us</div>
-            <a href='mailto:tpcfoet@gmail.com'>tpcfoetlu@gmail.com</a>
+            <a href='mailto:tpcfoet@gmail.com'>tpcfet.lu@gmail.com</a>
           </div>
           <div className='col text-center align-items-center'>
             <Phone />
@@ -37,6 +37,7 @@ const ContactScreen = () => {
             height='500px'
             width='100%'
             className='map'
+            title='map'
             loading='lazy'></iframe>
         </Row>
       </Container>

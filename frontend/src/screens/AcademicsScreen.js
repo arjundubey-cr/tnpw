@@ -23,7 +23,8 @@ const AcademicsScreen = () => {
         its environment. We invest our energies heavily in academic rigour,
         career development and campus engagement. Our students have the
         eagerness to learn and ameliorate their skills with practical
-        application.
+        application. The Faculty offers courses like Bachelor of Technology,
+        Bachelor in Computer Applications and Masters in Computer Applications.
       </div>
       <div className='container'>
         {data ? (
