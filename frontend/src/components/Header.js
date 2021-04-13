@@ -54,7 +54,9 @@ const Header = () => {
               <NavDropdown title='For Students' id='basic-nav-dropdown'>
                 {userInfo ? (
                   <div>
-                    <NavDropdown.Item>Profile</NavDropdown.Item>
+                    <LinkContainer to='/profile'>
+                      <NavDropdown.Item>Profile</NavDropdown.Item>
+                    </LinkContainer>
                     <NavDropdown.Item onClick={logoutHandler}>
                       LogOut
                     </NavDropdown.Item>

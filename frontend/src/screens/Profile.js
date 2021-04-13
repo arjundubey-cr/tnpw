@@ -1,7 +1,13 @@
-import React from 'react'
+import { Alert } from 'react-bootstrap'
 
 const Profile = () => {
-  return <div></div>
+  return (
+    <div>
+      <Alert className='heading-button text-center font-weight-bolder'>
+        Profile
+      </Alert>
+    </div>
+  )
 }
 
 export default Profile

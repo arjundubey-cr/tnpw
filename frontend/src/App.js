@@ -8,6 +8,7 @@ import PastRecruiters from './screens/PastRecruiters'
 import AcademicsScreen from './screens/AcademicsScreen'
 import LoginScreen from './screens/LoginScreen'
 import RegistrationScreen from './screens/RegistrationScreen'
+import Profile from './screens/Profile'
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path='/academics' component={AcademicsScreen} exact />
           <Route path='/contactus' component={ContactScreen} />
           <Route path='/register' component={RegistrationScreen} />
+          <Route path='/profile' component={Profile} />
         </>
       </main>
       <Footer />
