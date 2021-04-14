@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Form, Button, Row, Col, Container } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import { getUserDetails } from '../redux/userDetails/userDetailsAction'
@@ -43,7 +43,7 @@ const RegistrationScreen = ({ location, history }) => {
   }
 
   return (
-    <>
+    <Container>
       <h1>User Profile</h1>
       {message && <Message variant='danger'>{message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}
@@ -100,7 +100,7 @@ const RegistrationScreen = ({ location, history }) => {
       <Row className='py-3'>
         <Col>Have an Account? </Col>
       </Row>
-    </>
+    </Container>
   )
 }
 
