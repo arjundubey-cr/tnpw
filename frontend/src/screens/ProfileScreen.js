@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { Form, Button, Row, Col, Container } from 'react-bootstrap'
+import { Form, Button, Container } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
-import { getUserDetails } from '../redux/userDetails/userDetailsAction'
-
+import {
+  getUserDetails,
+  updateUserDetails,
+} from '../redux/userDetails/userDetailsAction'
 const RegistrationScreen = ({ location, history }) => {
   const [rollNumber, setRollNumber] = useState('')
   const [name, setName] = useState('')
@@ -21,6 +22,9 @@ const RegistrationScreen = ({ location, history }) => {
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
+  const userUpdateProfile = useSelector((state) => state.userUpdate)
+  const { success } = userUpdateProfile
+
   useEffect(() => {
     if (!userInfo) {
       history.push('/login')
@@ -30,15 +34,17 @@ const RegistrationScreen = ({ location, history }) => {
       } else {
         setName(user.name)
         setEmail(user.email)
+        setRollNumber(user.rollNumber)
       }
     }
-  }, [history, userInfo, dispatch])
+  }, [history, userInfo, dispatch, user])
 
   const submitHandler = (e) => {
     e.preventDefault()
     if (password !== confirmPassword) {
       setMessage('Passwords do not match!')
     } else {
+      dispatch(updateUserDetails({ id: user.id, name, email, password }))
     }
   }
 
@@ -48,6 +54,7 @@ const RegistrationScreen = ({ location, history }) => {
       {message && <Message variant='danger'>{message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Message variant='info'>Loading...</Message>}
+      {success && <Message variant='info'>Details Updated</Message>}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId='name'>
           <Form.Label>Name</Form.Label>
@@ -96,10 +103,6 @@ const RegistrationScreen = ({ location, history }) => {
           Update
         </Button>
       </Form>
-
-      <Row className='py-3'>
-        <Col>Have an Account? </Col>
-      </Row>
     </Container>
   )
 }

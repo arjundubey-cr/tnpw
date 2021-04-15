@@ -11,6 +11,7 @@ html {
 main {
   color: #264653;
   font-size: 18px;
+  min-height: 60vh;
   font-family: inherit;
 }
 .nav-link {

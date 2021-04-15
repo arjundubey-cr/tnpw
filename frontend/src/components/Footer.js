@@ -2,10 +2,10 @@ import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 const Footer = () => {
   return (
-    <footer className='pl-5 pt-5 mx-5'>
+    <footer className='pl-md-5 pt-md-5 mx-md-5'>
       <Container fluid>
         <Row className='justify-content-between'>
-          <Col>
+          <Col sm={12}>
             <h5>TnP | FoET</h5>
             <address>
               Training and Placement Cell <br />
@@ -14,13 +14,13 @@ const Footer = () => {
               Jankipuram, Lucknow - 226021
             </address>
           </Col>
-          <Col>
+          <Col sm={12} md={6}>
             <h6>Useful Links</h6>
           </Col>
-          <Col>
+          <Col sm={12} md={6} lg={3}>
             <h6>External Links</h6>
           </Col>
-          <Col>
+          <Col sm={12} md={6} lg={3}>
             <h6>Social Networks</h6>
           </Col>
         </Row>

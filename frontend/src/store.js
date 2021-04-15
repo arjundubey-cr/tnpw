@@ -6,13 +6,14 @@ import { userRegistrationReducer } from './redux/userRegistration/userRegistrati
 import { recruiterListReducer } from './redux/recruiterList/recruiterListReducer'
 import { departmentListReducer } from './redux/departmentList/departmentListReducer'
 import { userDetailsReducer } from './redux/userDetails/userDetailsReducer'
-
+import { userUpdateReducer } from './redux/userDetails/userDetailsReducer'
 const reducer = combineReducers({
   userLogin: authReducer,
   userRegister: userRegistrationReducer,
   recruiterList: recruiterListReducer,
   departmentList: departmentListReducer,
   userDetails: userDetailsReducer,
+  userUpdate: userUpdateReducer,
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
