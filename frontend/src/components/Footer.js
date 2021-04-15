@@ -24,7 +24,7 @@ const Footer = () => {
             <h6>Social Networks</h6>
           </Col>
         </Row>
-        <Row className='justify-content-between pl-5 pr-5'>
+        <Row className='justify-content-between pl-md-5 pr-md-5'>
           <div>&copy; 2021 TnP, FoET. All Rights Reserved</div>
           <div>
             Developed by <strong>Arjun Dubey</strong>
