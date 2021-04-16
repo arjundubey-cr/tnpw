@@ -6,11 +6,6 @@ const userDetailsSchema = mongoose.Schema({
     required: true,
     ref: 'User',
   },
-  rollNumber: {
-    type: mongooose.Schema.Types.String,
-    required: true,
-    ref: 'User',
-  },
   fathersName: {
     type: String,
     required: true,
@@ -23,8 +18,8 @@ const userDetailsSchema = mongoose.Schema({
     type: Date,
     required: true,
   },
-  email: {
-    type: String,
+  cumulativeCGPA: {
+    type: Number,
     required: true,
   },
   tenthMarks: {

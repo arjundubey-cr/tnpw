@@ -8,7 +8,8 @@ import {
 } from '../redux/userDetails/userDetailsAction'
 const RegistrationScreen = ({ location, history }) => {
   const [rollNumber, setRollNumber] = useState('')
-  const [name, setName] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setconfirmPassword] = useState('')
@@ -29,10 +30,11 @@ const RegistrationScreen = ({ location, history }) => {
     if (!userInfo) {
       history.push('/login')
     } else {
-      if (!user || !user.name) {
+      if (!user || !user.firstName) {
         dispatch(getUserDetails('profile'))
       } else {
-        setName(user.name)
+        setFirstName(user.firstName)
+        setLastName(user.lastName)
         setEmail(user.email)
         setRollNumber(user.rollNumber)
       }
@@ -41,13 +43,23 @@ const RegistrationScreen = ({ location, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    var letters = /^[A-Za-z]+$/
+    const letters = /^[A-Za-z]+$/
+    const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
     if (password !== confirmPassword) {
       setMessage('Passwords do not match!')
-    } else if (!name.match(letters)) {
-      setMessage('Please, Enter your name correctly')
+    } else if (
+      !letters.test(firstName) ||
+      !letters.test(lastName) ||
+      emailRegex.test(email) ||
+      firstName === '' ||
+      lastName === ''
+    ) {
+      setMessage('Please, Enter your details correctly')
+      console.log(letters.test(firstName))
     } else {
-      dispatch(updateUserDetails({ id: user.id, name, email, password }))
+      dispatch(
+        updateUserDetails({ id: user.id, firstName, lastName, email, password })
+      )
     }
   }
 
@@ -62,13 +74,23 @@ const RegistrationScreen = ({ location, history }) => {
         {loading && <Message variant='info'>Loading...</Message>}
         {success && <Message variant='info'>Details Updated</Message>}
         <Form onSubmit={submitHandler}>
-          <Form.Group controlId='name'>
-            <Form.Label>Name</Form.Label>
+          <Form.Group controlId='firstName'>
+            <Form.Label>First Name</Form.Label>
             <Form.Control
               type='name'
-              placeholder='Name'
-              value={name}
-              onChange={(e) => setName(e.target.value)}></Form.Control>
+              placeholder='First Name'
+              value={firstName}
+              onChange={(e) =>
+                setFirstName(e.target.value.trim())
+              }></Form.Control>
+          </Form.Group>
+          <Form.Group controlId='lastName'>
+            <Form.Label>Last Name</Form.Label>
+            <Form.Control
+              type='name'
+              placeholder='Last Name'
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}></Form.Control>
           </Form.Group>
           <Form.Group controlId='rollNumber'>
             <Form.Label>Roll Number</Form.Label>
