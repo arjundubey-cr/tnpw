@@ -28,7 +28,7 @@ const ContactScreen = () => {
           <div className='col text-center align-items-center'>
             <Phone />
             <div className='font-weight-bold mb-2 mt-1'>Call Us</div>
-            <a href='tel:+917905287870'>705287870</a>
+            <a href='tel:+917905287870'>+91-705287870</a>
           </div>
         </Row>
         <Row>

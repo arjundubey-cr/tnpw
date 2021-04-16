@@ -37,7 +37,7 @@ main {
   margin-top: 15px;
 }
 .department-list .card {
-  border: 1px dotted red !important;
+  border: 1px line black !important;
 }
 .card-header {
   background-color: #2a9d8f !important;
@@ -51,6 +51,13 @@ main {
 .department-list .contact-person-card {
   width: 100% !important;
 }
+.department-list .card .card-header {
+  color: white;
+}
 .map {
   border: none;
+}
+.recruiter {
+  background-color: #f5eccd;
+  color: #564e58 !important;
 }

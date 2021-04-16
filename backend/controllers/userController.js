@@ -85,6 +85,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       user.password = req.body.password
     }
     user.rollNumber = req.body.rollNumber || user.rollNumber
+    const {} = req.body
     const updatedUser = await user.save()
     res.json({
       _id: updatedUser._id,

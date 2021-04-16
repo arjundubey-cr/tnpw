@@ -6,6 +6,11 @@ const userDetailsSchema = mongoose.Schema({
     required: true,
     ref: 'User',
   },
+  rollNumber: {
+    type: mongooose.Schema.Types.String,
+    required: true,
+    ref: 'User',
+  },
   fathersName: {
     type: String,
     required: true,
@@ -16,6 +21,22 @@ const userDetailsSchema = mongoose.Schema({
   },
   dob: {
     type: Date,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  tenthMarks: {
+    type: String,
+    required: true,
+  },
+  twelfthMarks: {
+    type: String,
+    required: true,
+  },
+  year: {
+    type: String,
     required: true,
   },
 })
