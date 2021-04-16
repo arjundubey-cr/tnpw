@@ -10,7 +10,7 @@ import LoginScreen from './screens/LoginScreen'
 import RegistrationScreen from './screens/RegistrationScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import WhyRecruit from './screens/WhyRecruit'
-
+import DepartmentScreen from './screens/DepartmentScreen'
 const App = () => {
   return (
     <Router>
@@ -19,6 +19,7 @@ const App = () => {
         <>
           <Route path='/' component={HomeScreen} exact />
           <Route path='/login' component={LoginScreen} />
+          <Route path='/department' component={DepartmentScreen} />
           <Route path='/pastrecruiters' component={PastRecruiters} exact />
           <Route path='/academics' component={AcademicsScreen} exact />
           <Route path='/contactus' component={ContactScreen} />

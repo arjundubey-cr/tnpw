@@ -22,6 +22,11 @@ const Footer = () => {
           </Col>
           <Col sm={12} md={4} lg={2}>
             <h6>Social Networks</h6>
+            <div>
+              <a href='https://www.youtube.com/channel/UC1nHjrX7kO0Al4ArUwShFLg'>
+                Youtube
+              </a>
+            </div>
           </Col>
         </Row>
         <Row className='justify-content-between pl-md-5 pr-md-5'>
