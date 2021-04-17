@@ -1,3 +1,8 @@
+//TODO:-
+// 1. in state two things are not getting Updated
+// 2. user info is in 3 places inside user
+// we can map state
+
 import React, { useState, useEffect } from 'react'
 import { Form, Button, Container, Alert } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -17,19 +22,19 @@ const RegistrationScreen = ({ location, history }) => {
 
   const dispatch = useDispatch()
   const userDetails = useSelector((state) => state.userDetails)
-  const { loading, error, user } = userDetails
+  const { error, user } = userDetails
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
   const userUpdateProfile = useSelector((state) => state.userUpdate)
-  const { success } = userUpdateProfile
+  const { loading, success } = userUpdateProfile
 
   useEffect(() => {
     if (!userInfo) {
       history.push('/login')
     } else {
-      if (!user || !user.firstName || success) {
+      if (!user || !user.firstName) {
         dispatch(getUserDetails('profile'))
       } else {
         setFirstName(user.firstName)
@@ -73,7 +78,8 @@ const RegistrationScreen = ({ location, history }) => {
       firstName === '' ||
       lastName === ''
     ) {
-      console.log('message-set')
+      console.log('message-set ==' + message)
+
       setMessage('Please, Enter your details correctly')
     } else {
       dispatch(
@@ -92,7 +98,7 @@ const RegistrationScreen = ({ location, history }) => {
         {}
         {success && <Message variant='info'>Details Updated</Message>}
         {loading ? (
-          <Message>Loading...</Message>
+          <Message>Updating...</Message>
         ) : error ? (
           <Message variant='danger'>{error}</Message>
         ) : (
