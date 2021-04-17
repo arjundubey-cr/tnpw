@@ -5,9 +5,13 @@ import {
 } from './userRegistrationType'
 import axios from 'axios'
 import { USER_LOGIN_SUCCESS } from '../authentication/authenticationType'
-export const register = (name, email, rollNumber, password) => async (
-  dispatch
-) => {
+export const register = (
+  firstName,
+  lastName,
+  email,
+  rollNumber,
+  password
+) => async (dispatch) => {
   try {
     dispatch({
       type: USER_REGISTRATION_REQUEST,
@@ -19,7 +23,7 @@ export const register = (name, email, rollNumber, password) => async (
     }
     const { data } = await axios.post(
       '/api/users',
-      { name, email, rollNumber, password },
+      { firstName, lastName, email, rollNumber, password },
       config
     )
     dispatch({

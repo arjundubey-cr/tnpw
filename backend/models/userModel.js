@@ -29,6 +29,37 @@ const userSchema = mongoose.Schema(
       required: true,
       default: false,
     },
+    fathersName: {
+      type: String,
+      default: '',
+    },
+    mothersName: {
+      type: String,
+      default: '',
+    },
+    dob: {
+      type: Date,
+    },
+    cumulativeCGPA: {
+      type: Number,
+      default: 0,
+    },
+    tenthMarks: {
+      type: String,
+      default: '',
+    },
+    twelfthMarks: {
+      type: String,
+      default: '',
+    },
+    year: {
+      type: String,
+      default: '',
+    },
+    resumeLink: {
+      type: String,
+      default: '',
+    },
   },
   {
     timestamps: true,

@@ -1,38 +1,56 @@
 import mongoose from 'mongoose'
 
 const userDetailsSchema = mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
+  firstName: {
+    type: String,
     required: true,
-    ref: 'User',
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  rollNumber: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  isAdmin: {
+    type: Boolean,
+    required: true,
+    default: false,
   },
   fathersName: {
     type: String,
-    required: true,
   },
   mothersName: {
     type: String,
-    required: true,
   },
   dob: {
     type: Date,
-    required: true,
   },
   cumulativeCGPA: {
     type: Number,
-    required: true,
   },
   tenthMarks: {
     type: String,
-    required: true,
   },
   twelfthMarks: {
     type: String,
-    required: true,
   },
   year: {
     type: String,
-    required: true,
+  },
+  resumeLink: {
+    type: String,
   },
 })
 

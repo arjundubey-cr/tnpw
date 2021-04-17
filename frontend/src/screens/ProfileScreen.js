@@ -16,7 +16,6 @@ const RegistrationScreen = ({ location, history }) => {
   const [message, setMessage] = useState(null)
 
   const dispatch = useDispatch()
-
   const userDetails = useSelector((state) => state.userDetails)
   const { loading, error, user } = userDetails
 
@@ -30,7 +29,7 @@ const RegistrationScreen = ({ location, history }) => {
     if (!userInfo) {
       history.push('/login')
     } else {
-      if (!user || !user.firstName) {
+      if (!user || !user.firstName || success) {
         dispatch(getUserDetails('profile'))
       } else {
         setFirstName(user.firstName)
@@ -39,10 +38,30 @@ const RegistrationScreen = ({ location, history }) => {
         setRollNumber(user.rollNumber)
       }
     }
-  }, [history, userInfo, dispatch, user])
+  }, [history, userInfo, dispatch, user, success])
 
+  const handleChange = (e) => {
+    const { id, value } = e.target
+    switch (id) {
+      case 'firstName':
+        setFirstName(value.trim())
+        break
+      case 'lastName':
+        setLastName(value.trim())
+        break
+      case 'rollNumber':
+        setRollNumber(value.trim())
+        break
+      case 'email':
+        setEmail(value.trim())
+        break
+      default:
+        break
+    }
+  }
   const submitHandler = (e) => {
     e.preventDefault()
+    console.log('Submit Handler called')
     const letters = /^[A-Za-z]+$/
     const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
     if (password !== confirmPassword) {
@@ -50,12 +69,12 @@ const RegistrationScreen = ({ location, history }) => {
     } else if (
       !letters.test(firstName) ||
       !letters.test(lastName) ||
-      emailRegex.test(email) ||
+      !emailRegex.test(email) ||
       firstName === '' ||
       lastName === ''
     ) {
+      console.log('message-set')
       setMessage('Please, Enter your details correctly')
-      console.log(letters.test(firstName))
     } else {
       dispatch(
         updateUserDetails({ id: user.id, firstName, lastName, email, password })
@@ -70,69 +89,69 @@ const RegistrationScreen = ({ location, history }) => {
       </Alert>
       <Container>
         {message && <Message variant='danger'>{message}</Message>}
-        {error && <Message variant='danger'>{error}</Message>}
-        {loading && <Message variant='info'>Loading...</Message>}
+        {}
         {success && <Message variant='info'>Details Updated</Message>}
-        <Form onSubmit={submitHandler}>
-          <Form.Group controlId='firstName'>
-            <Form.Label>First Name</Form.Label>
-            <Form.Control
-              type='name'
-              placeholder='First Name'
-              value={firstName}
-              onChange={(e) =>
-                setFirstName(e.target.value.trim())
-              }></Form.Control>
-          </Form.Group>
-          <Form.Group controlId='lastName'>
-            <Form.Label>Last Name</Form.Label>
-            <Form.Control
-              type='name'
-              placeholder='Last Name'
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}></Form.Control>
-          </Form.Group>
-          <Form.Group controlId='rollNumber'>
-            <Form.Label>Roll Number</Form.Label>
-            <Form.Control
-              type='string'
-              placeholder='Enter University Roll Number'
-              value={rollNumber}
-              onChange={(e) => setRollNumber(e.target.value)}></Form.Control>
-          </Form.Group>
-
-          <Form.Group controlId='Email'>
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type='email'
-              placeholder='Enter Email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}></Form.Control>
-          </Form.Group>
-
-          <Form.Group controlId='password'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type='password'
-              placeholder='Enter password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}></Form.Control>
-          </Form.Group>
-
-          <Form.Group controlId='comfirmpassword'>
-            <Form.Label>Confirm Password</Form.Label>
-            <Form.Control
-              type='password'
-              placeholder='Confirm password'
-              value={confirmPassword}
-              onChange={(e) =>
-                setconfirmPassword(e.target.value)
-              }></Form.Control>
-          </Form.Group>
-          <Button type='submit' variant='primary'>
-            Update
-          </Button>
-        </Form>
+        {loading ? (
+          <Message>Loading...</Message>
+        ) : error ? (
+          <Message variant='danger'>{error}</Message>
+        ) : (
+          <Form onSubmit={submitHandler}>
+            <Form.Group controlId='firstName'>
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                type='firstName'
+                placeholder='First Name'
+                value={firstName}
+                onChange={handleChange}></Form.Control>
+            </Form.Group>
+            <Form.Group controlId='lastName'>
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                type='lastName'
+                placeholder='Last Name'
+                value={lastName}
+                onChange={handleChange}></Form.Control>
+            </Form.Group>
+            <Form.Group controlId='rollNumber'>
+              <Form.Label>Roll Number</Form.Label>
+              <Form.Control
+                type='string'
+                placeholder='Enter University Roll Number'
+                value={rollNumber}
+                onChange={handleChange}></Form.Control>
+            </Form.Group>
+            <Form.Group controlId='email'>
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type='email'
+                placeholder='Enter Email'
+                value={email}
+                onChange={handleChange}></Form.Control>
+            </Form.Group>
+            <Form.Group controlId='password'>
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type='password'
+                placeholder='Enter password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}></Form.Control>
+            </Form.Group>
+            <Form.Group controlId='confirmpassword'>
+              <Form.Label>Confirm Password</Form.Label>
+              <Form.Control
+                type='password'
+                placeholder='Confirm password'
+                value={confirmPassword}
+                onChange={(e) =>
+                  setconfirmPassword(e.target.value)
+                }></Form.Control>
+            </Form.Group>
+            <Button type='submit' variant='primary'>
+              Update
+            </Button>
+          </Form>
+        )}
       </Container>
     </div>
   )

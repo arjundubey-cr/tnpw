@@ -28,7 +28,7 @@ const authUser = asyncHandler(async (req, res) => {
 //@route POST /api/users
 //@access Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, rollNumber, password } = req.body
+  const { firstName, lastName, email, rollNumber, password } = req.body
   const userExists = await User.findOne({ rollNumber })
   if (userExists) {
     res.status(400)
@@ -69,7 +69,14 @@ const getUserProfile = asyncHandler(async (req, res) => {
       lastName: user.lastName,
       email: user.email,
       rollNumber: user.rollNumber,
-      isAdmin: user.isAdmin,
+      fathersName: user.fathersName,
+      mothersName: user.mothersName,
+      dob: user.dob,
+      cumulativeCGPA: user.cumulativeCGPA,
+      tenthMarks: user.tenthMarks,
+      twelfthMarks: user.twelfthMarks,
+      year: user.year,
+      resumeLink: user.resumeLink,
     })
   } else {
     res.status(404)
@@ -86,6 +93,15 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     user.firstName = req.body.firstName || user.firstName
     user.lastName = req.body.lastName || user.lastName
     user.email = req.body.email || user.email
+    user.rollNumber = req.body.rollNumber || user.rollNumber
+    user.fathersName = req.body.fathersName || user.fathersName
+    user.mothersName = req.body.mothersName || user.mothersName
+    user.dob = req.body.dob || user.dob
+    user.cumulativeCGPA = req.body.cumulativeCGPA || user.cumulativeCGPA
+    user.tenthMarks = req.body.tenthMarks || user.tenthMarks
+    user.twelfthMarks = req.body.twelfthMarks || user.twelfthMarks
+    user.year = req.body.year || user.year
+    user.resumeLink = req.body.dob || user.dob
     if (req.body.password) {
       user.password = req.body.password
     }
@@ -97,7 +113,15 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       firstName: updatedUser.firstName,
       lastName: updatedUser.lastName,
       email: updatedUser.email,
-      isAdmin: updatedUser.isAdmin,
+      rollNumber: updatedUser.rollNumber,
+      fathersName: updatedUser.fathersName,
+      mothersName: updatedUser.mothersName,
+      dob: updatedUser.dob,
+      cumulativeCGPA: updatedUser.cumulativeCGPA,
+      tenthMarks: updatedUser.tenthMarks,
+      twelfthMarks: updatedUser.twelfthMarks,
+      year: updatedUser.year,
+      resumeLink: updatedUser.resumeLink,
     })
   } else {
     res.status(404)
