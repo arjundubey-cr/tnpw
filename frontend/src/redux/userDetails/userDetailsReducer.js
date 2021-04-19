@@ -23,11 +23,11 @@ export const userDetailsReducer = (state = { user: {} }, action) => {
 export const userUpdateReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_DETAILS_UPDATE_REQUEST:
-      return { ...state, loading: true }
+      return { ...state, loading: true, success: false }
     case USER_DETAILS_UPDATE_SUCCESS:
       return { loading: false, success: true, userInfo: action.payload }
     case USER_DETAILS_UPDATE_FAIL:
-      return { loading: false, error: action.payload }
+      return { loading: false, error: action.payload, success: false }
     default:
       return state
   }

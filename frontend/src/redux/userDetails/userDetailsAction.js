@@ -6,6 +6,7 @@ import {
   USER_DETAILS_UPDATE_REQUEST,
   USER_DETAILS_UPDATE_SUCCESS,
 } from './userDetailsType'
+import { USER_LOGIN_SUCCESS } from '../authentication/authenticationType'
 import axios from 'axios'
 
 export const getUserDetails = (id) => async (dispatch, getState) => {
@@ -59,6 +60,15 @@ export const updateUserDetails = (user) => async (dispatch, getState) => {
       type: USER_DETAILS_UPDATE_SUCCESS,
       payload: data,
     })
+    dispatch({
+      type: USER_DETAILS_SUCCESS,
+      payload: data,
+    })
+    dispatch({
+      type: USER_LOGIN_SUCCESS,
+      payload: data,
+    })
+    localStorage.setItem('userInfo', JSON.stringify(data))
   } catch (error) {
     dispatch({
       type: USER_DETAILS_UPDATE_FAIL,
