@@ -9,18 +9,23 @@ import {
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
 const RegistrationScreen = ({ location, history }) => {
+  //defining all the states
   const [rollNumber, setRollNumber] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setconfirmPassword] = useState('')
-  const dispatch = useDispatch()
   const [show, setShow] = useState(true)
+
+  const dispatch = useDispatch()
+
   const userDetails = useSelector((state) => state.userDetails)
   const { error, user } = userDetails
+
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
+
   const userUpdateProfile = useSelector((state) => state.userUpdate)
   const { loading, success } = userUpdateProfile
 
@@ -93,6 +98,9 @@ const RegistrationScreen = ({ location, history }) => {
         updateUserDetails({ id: user.id, firstName, lastName, email, password })
       )
       setShow(true)
+    }
+    if (show) {
+      toastNotification('Details Updated')
     }
   }
 
@@ -171,7 +179,6 @@ const RegistrationScreen = ({ location, history }) => {
                   <>Update</>
                 )}
               </Button>
-              {success && show ? toastNotification('Details Updated') : <></>}
             </Form>
           </div>
         )}
