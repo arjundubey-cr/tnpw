@@ -10,12 +10,19 @@ import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
 const RegistrationScreen = ({ location, history }) => {
   //defining all the states
-  const [rollNumber, setRollNumber] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
+  const [rollNumber, setRollNumber] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setconfirmPassword] = useState('')
+  const [fathersName, setFathersName] = useState('')
+  const [mothersName, setMothersName] = useState('')
+  const [dob, setDob] = useState(null)
+  const [cgpa, setCgpa] = useState(0)
+  const [tenthMarks, setTenthMarks] = useState(0)
+  const [twelfthMarks, setTwelfthMarks] = useState(0)
+  const [year, setYear] = useState(0)
   const [show, setShow] = useState(true)
 
   const dispatch = useDispatch()
@@ -27,7 +34,7 @@ const RegistrationScreen = ({ location, history }) => {
   const { userInfo } = userLogin
 
   const userUpdateProfile = useSelector((state) => state.userUpdate)
-  const { loading, success } = userUpdateProfile
+  const { loading } = userUpdateProfile
 
   const toastCustomId = 'id007'
   useEffect(() => {
@@ -148,23 +155,54 @@ const RegistrationScreen = ({ location, history }) => {
                   value={email}
                   onChange={handleChange}></Form.Control>
               </Form.Group>
-              <Form.Group controlId='password'>
-                <Form.Label>Password</Form.Label>
+              <Form.Group controlId='fathersName'>
+                <Form.Label>Father's Name</Form.Label>
                 <Form.Control
-                  type='password'
-                  placeholder='Enter password'
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}></Form.Control>
+                  type='fathersName'
+                  placeholder="Father's Name"
+                  value={fathersName}
+                  onChange={handleChange}></Form.Control>
               </Form.Group>
-              <Form.Group controlId='confirmpassword'>
-                <Form.Label>Confirm Password</Form.Label>
+              <Form.Group controlId='mothersName'>
+                <Form.Label>Mother's Name</Form.Label>
                 <Form.Control
-                  type='password'
-                  placeholder='Confirm password'
-                  value={confirmPassword}
-                  onChange={(e) =>
-                    setconfirmPassword(e.target.value)
-                  }></Form.Control>
+                  type='mothersName'
+                  placeholder="Mother's Name"
+                  value={mothersName}
+                  onChange={handleChange}></Form.Control>
+              </Form.Group>
+
+              <Form.Group controlId='dob'>
+                <Form.Label>Mother's Name</Form.Label>
+                <Form.Control
+                  type='dob'
+                  placeholder='Date of Birth'
+                  value={dob}
+                  onChange={handleChange}></Form.Control>
+              </Form.Group>
+              <Form.Group controlId='cgpa'>
+                <Form.Label>Mother's Name</Form.Label>
+                <Form.Control
+                  type='cgpa'
+                  placeholder='Date of Birth'
+                  value={cgpa}
+                  onChange={handleChange}></Form.Control>
+              </Form.Group>
+              <Form.Group controlId='tenthMarks'>
+                <Form.Label>Mother's Name</Form.Label>
+                <Form.Control
+                  type='tenthMarks'
+                  placeholder='Date of Birth'
+                  value={tenthMarks}
+                  onChange={handleChange}></Form.Control>
+              </Form.Group>
+              <Form.Group controlId='twelfthMarks'>
+                <Form.Label>Mother's Name</Form.Label>
+                <Form.Control
+                  type='twelfthMarks'
+                  placeholder='Date of Birth'
+                  value={twelfthMarks}
+                  onChange={handleChange}></Form.Control>
               </Form.Group>
               <Button type='submit' variant='primary'>
                 {loading ? (
