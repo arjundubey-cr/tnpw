@@ -1,8 +1,8 @@
-import { Alert, Card } from 'react-bootstrap'
+import { Alert, Card, Spinner } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchDepartment } from '../redux/departmentList/departmentListAction'
-import Message from '../components/Message'
 import { useEffect } from 'react'
+import { toastNotification } from '../components/ToastNotif'
 const DepartmentScreen = () => {
   const dispatch = useDispatch()
   const departmentList = useSelector((state) => state.departmentList)
@@ -64,9 +64,11 @@ const DepartmentScreen = () => {
             </div>
           ))
         ) : loading ? (
-          <Message variant='info'>Loading...</Message>
+          <Spinner animation='border' role='status'>
+            <span className='sr-only'>Loading...</span>
+          </Spinner>
         ) : (
-          error && <Message variant='danger'>{error}</Message>
+          error && toastNotification(error, 'error')
         )}
       </div>
     </div>

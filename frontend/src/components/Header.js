@@ -22,15 +22,12 @@ const Header = () => {
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ml-auto'>
-              <NavDropdown title='FoET, LU' id='basic-nav-dropdown'>
-                <LinkContainer to='/students'>
-                  <NavDropdown.Item>Students</NavDropdown.Item>
-                </LinkContainer>
+              <NavDropdown title='Why Recruit?' id='basic-nav-dropdown'>
                 <LinkContainer to='/academics'>
-                  <NavDropdown.Item>Academics</NavDropdown.Item>
+                  <NavDropdown.Item>Academics and Beyond</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to='/department'>
-                  <NavDropdown.Item>Department</NavDropdown.Item>
+                <LinkContainer to='/departments'>
+                  <NavDropdown.Item>Departments</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
               <NavDropdown title='Downloads' id='basic-nav-dropdown'>

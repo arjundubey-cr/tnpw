@@ -2,31 +2,47 @@ import React from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 import HomeScreen from './screens/HomeScreen'
-import ContactScreen from './screens/ContactScreen'
-import PastRecruiters from './screens/PastRecruiters'
-import AcademicsScreen from './screens/AcademicsScreen'
 import LoginScreen from './screens/LoginScreen'
 import RegistrationScreen from './screens/RegistrationScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import WhyRecruit from './screens/WhyRecruit'
-import DepartmentScreen from './screens/DepartmentScreen'
+
+const LazyPastRecruiters = React.lazy(() => import('./screens/PastRecruiters'))
+const LazyDepartmentScreen = React.lazy(() =>
+  import('./screens/DepartmentScreen')
+)
+const LazyAcademicsScreen = React.lazy(() =>
+  import('./screens/AcademicsScreen')
+)
+const LazyContactScreen = React.lazy(() => import('./screens/ContactScreen'))
+
 const App = () => {
   return (
     <Router>
+      <ToastContainer limit={1} />
       <Header />
       <main>
-        <>
+        <React.Suspense fallback={<div>Loading...</div>}>
           <Route path='/' component={HomeScreen} exact />
           <Route path='/login' component={LoginScreen} />
-          <Route path='/department' component={DepartmentScreen} />
-          <Route path='/pastrecruiters' component={PastRecruiters} exact />
-          <Route path='/academics' component={AcademicsScreen} exact />
-          <Route path='/contactus' component={ContactScreen} />
+          <Route path='/departments'>
+            <LazyDepartmentScreen />
+          </Route>
+          <Route path='/pastrecruiters'>
+            <LazyPastRecruiters />
+          </Route>
+          <Route path='/academics'>
+            <LazyAcademicsScreen />
+          </Route>
+          <Route path='/contactus'>
+            <LazyContactScreen />
+          </Route>
           <Route path='/register' component={RegistrationScreen} />
           <Route path='/profile' component={ProfileScreen} />
           <Route path='/whyfoet' component={WhyRecruit} />
-        </>
+        </React.Suspense>
       </main>
       <Footer />
     </Router>

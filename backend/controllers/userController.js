@@ -72,7 +72,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
       fathersName: user.fathersName,
       mothersName: user.mothersName,
       dob: user.dob,
-      cumulativeCGPA: user.cumulativeCGPA,
+      cgpa: user.cgpa,
       tenthMarks: user.tenthMarks,
       twelfthMarks: user.twelfthMarks,
       year: user.year,
@@ -97,16 +97,17 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     user.fathersName = req.body.fathersName || user.fathersName
     user.mothersName = req.body.mothersName || user.mothersName
     user.dob = req.body.dob || user.dob
-    user.cumulativeCGPA = req.body.cumulativeCGPA || user.cumulativeCGPA
+    user.cgpa = req.body.cgpa || user.cgpa
     user.tenthMarks = req.body.tenthMarks || user.tenthMarks
     user.twelfthMarks = req.body.twelfthMarks || user.twelfthMarks
     user.year = req.body.year || user.year
-    user.resumeLink = req.body.dob || user.dob
+    user.resumeLink = req.body.resumeLink || user.resumeLink
     if (req.body.password) {
       user.password = req.body.password
     }
     user.rollNumber = req.body.rollNumber || user.rollNumber
-    const {} = req.body
+    // const {} = req.body
+    console.log(user)
     const updatedUser = await user.save()
     res.status(201).json({
       _id: updatedUser._id,
@@ -117,7 +118,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       fathersName: updatedUser.fathersName,
       mothersName: updatedUser.mothersName,
       dob: updatedUser.dob,
-      cumulativeCGPA: updatedUser.cumulativeCGPA,
+      cgpa: updatedUser.cgpa,
       tenthMarks: updatedUser.tenthMarks,
       twelfthMarks: updatedUser.twelfthMarks,
       year: updatedUser.year,

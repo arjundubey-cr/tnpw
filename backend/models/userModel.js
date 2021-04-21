@@ -39,18 +39,16 @@ const userSchema = mongoose.Schema(
     },
     dob: {
       type: Date,
+      default: null,
     },
-    cumulativeCGPA: {
+    cgpa: {
       type: Number,
-      default: 0,
     },
     tenthMarks: {
       type: String,
-      default: '',
     },
     twelfthMarks: {
       type: String,
-      default: '',
     },
     year: {
       type: String,

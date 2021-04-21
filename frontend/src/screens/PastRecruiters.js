@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import { Alert, Container } from 'react-bootstrap'
+import { Alert, Container, Spinner } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import Message from '../components/Message'
+import { toastNotification } from '../components/ToastNotif'
 import { fetchRecruiters } from '../redux/recruiterList/recruiterListAction'
 const PastRecruiters = () => {
   const dispatch = useDispatch()
@@ -24,9 +24,11 @@ const PastRecruiters = () => {
             </Alert>
           ))
         ) : loading ? (
-          <Message variant='info'>Loading...</Message>
+          <Spinner animation='border' role='status'>
+            <span className='sr-only'>Loading...</span>
+          </Spinner>
         ) : (
-          error && <Message variant='danger'>{error}</Message>
+          error && toastNotification(error, 'error')
         )}
       </Container>
     </div>

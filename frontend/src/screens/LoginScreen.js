@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Form, Button, Row, Col, Alert } from 'react-bootstrap'
+import { Form, Button, Row, Col, Alert, Spinner } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../components/FormContainer'
 import { login } from '../redux/authentication/authenticationAction'
-import Message from '../components/Message'
+import { toastNotification } from '../components/ToastNotif'
 
 const LoginScreen = ({ location, history }) => {
   const [rollNumber, setRollNumber] = useState('')
@@ -15,11 +15,12 @@ const LoginScreen = ({ location, history }) => {
   const userLogin = useSelector((state) => state.userLogin)
   const { loading, error, userInfo } = userLogin
 
-  const redirect = location.search ? location.search.split('=')[1] : '/'
+  let redirect = location.search ? location.search.split('=')[1] : '/'
 
   useEffect(() => {
     if (userInfo) {
       history.push(redirect)
+      toastNotification('Successfully Logged')
     }
   }, [history, userInfo, redirect])
 
@@ -33,9 +34,8 @@ const LoginScreen = ({ location, history }) => {
       <Alert className='heading-button text-center font-weight-bolder'>
         Login
       </Alert>
+      {error && toastNotification(error, 'error')}
       <FormContainer>
-        {error && <Message variant='danger'>{error}</Message>}
-        {loading && <Message variant='info'>Loading...</Message>}
         <Form onSubmit={submitHandler}>
           <Form.Group controlId='email'>
             <Form.Label>Roll Number</Form.Label>
@@ -56,7 +56,17 @@ const LoginScreen = ({ location, history }) => {
           </Form.Group>
 
           <Button type='submit' variant='primary'>
-            Sign In
+            {loading ? (
+              <Spinner
+                as='span'
+                animation='border'
+                size='sm'
+                role='status'
+                aria-hidden='true'
+              />
+            ) : (
+              <>Sign In</>
+            )}
           </Button>
         </Form>
 

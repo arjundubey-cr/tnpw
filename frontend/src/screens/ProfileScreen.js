@@ -1,28 +1,36 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Button, Container, Alert, Spinner } from 'react-bootstrap'
+import {
+  Form,
+  Button,
+  Container,
+  Alert,
+  Spinner,
+  Col,
+  Row,
+} from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import Message from '../components/Message'
 import {
   getUserDetails,
   updateUserDetails,
 } from '../redux/userDetails/userDetailsAction'
-import { toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.min.css'
-const RegistrationScreen = ({ location, history }) => {
+import { toastNotification } from '../components/ToastNotif'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+
+const ProfileScreen = ({ location, history }) => {
   //defining all the states
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [rollNumber, setRollNumber] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setconfirmPassword] = useState('')
   const [fathersName, setFathersName] = useState('')
   const [mothersName, setMothersName] = useState('')
-  const [dob, setDob] = useState(null)
+  const [dob, setDob] = useState(new Date(2018, 11, 24))
   const [cgpa, setCgpa] = useState(0)
   const [tenthMarks, setTenthMarks] = useState(0)
   const [twelfthMarks, setTwelfthMarks] = useState(0)
   const [year, setYear] = useState(0)
+  const [resumeLink, setResumeLink] = useState('')
   const [show, setShow] = useState(true)
 
   const dispatch = useDispatch()
@@ -36,10 +44,12 @@ const RegistrationScreen = ({ location, history }) => {
   const userUpdateProfile = useSelector((state) => state.userUpdate)
   const { loading } = userUpdateProfile
 
-  const toastCustomId = 'id007'
+  const redirect = location.search ? location.search.split('=')[1] : '/'
+
   useEffect(() => {
+    console.log(history)
     if (!userInfo) {
-      history.push('/login')
+      history.push(redirect)
     } else {
       if (!user || !user.firstName) {
         dispatch(getUserDetails('profile'))
@@ -48,61 +58,107 @@ const RegistrationScreen = ({ location, history }) => {
         setLastName(user.lastName)
         setEmail(user.email)
         setRollNumber(user.rollNumber)
+        handleDateFormat(user.dob || new Date(2018, 11, 24))
+        setFathersName(user.fathersName || '')
+        setMothersName(user.mothersName || '')
+        setCgpa(user.cgpa || '')
+        setTenthMarks(user.tenthMarks || '')
+        setTwelfthMarks(user.twelfthMarks || '')
+        setYear(user.year || '')
+        setResumeLink(user.resumeLink || '')
       }
     }
   }, [history, userInfo, dispatch, user])
 
+  const handleDateFormat = (date) => {
+    const dateObj = new Date(date)
+    setDob(dateObj)
+  }
   const handleChange = (e) => {
     const { id, value } = e.target
     switch (id) {
       case 'firstName':
-        setFirstName(value)
+        setFirstName(value.trim())
         break
       case 'lastName':
-        setLastName(value)
+        setLastName(value.trim())
         break
       case 'rollNumber':
-        setRollNumber(value)
+        setRollNumber(value.trim())
         break
       case 'email':
-        setEmail(value)
+        setEmail(value.trim())
+        break
+      case 'mothersName':
+        setMothersName(value)
+        break
+      case 'fathersName':
+        setFathersName(value)
+        break
+      case 'cgpa':
+        setCgpa(value.trim())
+        break
+      case 'tenthMarks':
+        setTenthMarks(value.trim())
+        break
+      case 'twelfthMarks':
+        setTwelfthMarks(value.trim())
+        break
+      case 'resumeLink':
+        setResumeLink(value.trim())
+        break
+      case 'year':
+        setYear(value)
         break
       default:
         break
     }
   }
-  const toastNotification = (message, type) => {
-    if (type === 'error') {
-      toast.error(message, {
-        toastId: toastCustomId,
-      })
-    } else {
-      toast.success(message, {
-        taostId: toastCustomId,
-      })
+  const validateName = () => {
+    const alphaRegex = /^[A-Za-z]+$/
+    const sentenceRegex = /^[a-zA-Z]+( [a-zA-Z]+)*$/
+    const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    if (!alphaRegex.test(firstName)) {
+      toastNotification('Please enter your first name correctly!', 'error')
+      return false
+    } else if (!alphaRegex.test(lastName)) {
+      toastNotification('Please enter your last name correctly!', 'error')
+      return false
+    } else if (!emailRegex.test(email)) {
+      toastNotification('Please enter your Email correctly!', 'error')
+      return false
+    } else if (
+      !sentenceRegex.test(fathersName) ||
+      !sentenceRegex.test(mothersName)
+    ) {
+      toastNotification(
+        "Please enter Father's and/or Mother's name correctly",
+        'error'
+      )
+      return false
     }
-    toast.clearWaitingQueue()
   }
   const submitHandler = async (e) => {
     e.preventDefault()
-
-    const alphabetRegex = /^[A-Za-z]+$/
-    const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-    if (password !== confirmPassword) {
-      setShow(false)
-      toastNotification('Passwords do not match!', 'error')
-    } else if (
-      !alphabetRegex.test(firstName) ||
-      !alphabetRegex.test(lastName) ||
-      !emailRegex.test(email) ||
-      firstName === '' ||
-      lastName === ''
-    ) {
+    if (validateName()) {
       setShow(false)
       toastNotification('Please, Enter your details correctly', 'error')
     } else {
       dispatch(
-        updateUserDetails({ id: user.id, firstName, lastName, email, password })
+        updateUserDetails({
+          id: user.id,
+          firstName,
+          lastName,
+          email,
+          dob,
+          fathersName,
+          mothersName,
+          cgpa,
+          tenthMarks,
+          twelfthMarks,
+          year,
+          resumeLink,
+        })
       )
       setShow(true)
     }
@@ -113,13 +169,12 @@ const RegistrationScreen = ({ location, history }) => {
 
   return (
     <div>
-      <ToastContainer limit={1} />
       <Alert className='heading-button text-center font-weight-bolder'>
         My Profile
       </Alert>
       <Container>
         {error ? (
-          <Message variant='danger'>{error}</Message>
+          toastNotification(error, 'error')
         ) : (
           <div>
             <Form onSubmit={submitHandler}>
@@ -173,37 +228,77 @@ const RegistrationScreen = ({ location, history }) => {
               </Form.Group>
 
               <Form.Group controlId='dob'>
-                <Form.Label>Mother's Name</Form.Label>
-                <Form.Control
-                  type='dob'
-                  placeholder='Date of Birth'
-                  value={dob}
-                  onChange={handleChange}></Form.Control>
+                <Form.Label>Date of Birth</Form.Label>
+                <br />
+                <DatePicker
+                  className='w-100 form-control'
+                  selected={dob}
+                  onChange={(date) => setDob(date)}
+                />
               </Form.Group>
               <Form.Group controlId='cgpa'>
-                <Form.Label>Mother's Name</Form.Label>
+                <Form.Label>Cumulative CGPA</Form.Label>
                 <Form.Control
-                  type='cgpa'
-                  placeholder='Date of Birth'
+                  type='Number'
+                  placeholder='CGPA'
                   value={cgpa}
                   onChange={handleChange}></Form.Control>
               </Form.Group>
+
+              <Form.Group controlId='year'>
+                <Form.Label>Year of Study</Form.Label>
+                <Form.Control
+                  as='select'
+                  custom
+                  onChange={handleChange}
+                  value={year}>
+                  <option value={1}>First Year</option>
+                  <option value={2}>Second Year</option>
+                  <option value={3}>Third Year</option>
+                  <option value={4}>Fourth Year</option>
+                </Form.Control>
+              </Form.Group>
               <Form.Group controlId='tenthMarks'>
-                <Form.Label>Mother's Name</Form.Label>
+                <Form.Label>Tenth Class Percentage</Form.Label>
                 <Form.Control
                   type='tenthMarks'
-                  placeholder='Date of Birth'
+                  placeholder='Enter Percentage'
                   value={tenthMarks}
                   onChange={handleChange}></Form.Control>
+                <Form.Text id='tenthMarksHelpBlock' muted>
+                  Enter numeric value of percentage. Enter 80 for 80%.
+                  <br />
+                  Convert your CGPA to percentage using appropriate scale
+                </Form.Text>
               </Form.Group>
               <Form.Group controlId='twelfthMarks'>
-                <Form.Label>Mother's Name</Form.Label>
+                <Form.Label>Twelfth Class Percentage</Form.Label>
                 <Form.Control
                   type='twelfthMarks'
-                  placeholder='Date of Birth'
+                  placeholder='Enter Percentage'
                   value={twelfthMarks}
                   onChange={handleChange}></Form.Control>
               </Form.Group>
+              <Form.Group controlId='resumeLink'>
+                <Form.Label>Provide link to your Resume/CV</Form.Label>
+                <Row>
+                  <Col>
+                    <Form.Control
+                      type='resumeLink'
+                      placeholder='https://'
+                      value={resumeLink}
+                      onChange={handleChange}
+                      className='md-3'
+                    />
+                  </Col>
+                  {resumeLink && (
+                    <Button href={resumeLink} variant='outline-success'>
+                      View Resume
+                    </Button>
+                  )}
+                </Row>
+              </Form.Group>
+
               <Button type='submit' variant='primary'>
                 {loading ? (
                   <Spinner
@@ -225,4 +320,4 @@ const RegistrationScreen = ({ location, history }) => {
   )
 }
 
-export default RegistrationScreen
+export default ProfileScreen
