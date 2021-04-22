@@ -19,6 +19,15 @@ const DepartmentScreen = () => {
         Department
       </Alert>
       <div className='container'>
+        <p>
+          From its very inception, FoET has been striving to develop itself into
+          an institution of excellence in education and research in consonance
+          with the contemporary and future needs of India. In its continual
+          endeavor to achieve excellence in education, the institution offer
+          courses in following 5 departments, our students combine analytical
+          rigor with curiosity, playful imagination, and an appetite for solving
+          the hardest problems in service to society.
+        </p>
         {data ? (
           data.map((value) => (
             <div className='department-list row  d-flex justify-content-between pb-5'>

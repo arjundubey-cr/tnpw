@@ -125,7 +125,17 @@ const RegistrationScreen = ({ location, history }) => {
             onChange={(e) => setconfirmPassword(e.target.value)}></Form.Control>
         </Form.Group>
         <Button type='submit' variant='primary'>
-          {loading ? <Spinner /> : <>Register</>}
+          {loading ? (
+            <Spinner
+              as='span'
+              animation='border'
+              size='sm'
+              role='status'
+              aria-hidden='true'
+            />
+          ) : (
+            <>Register</>
+          )}
         </Button>
       </Form>
 

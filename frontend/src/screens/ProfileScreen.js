@@ -47,7 +47,6 @@ const ProfileScreen = ({ location, history }) => {
   const redirect = location.search ? location.search.split('=')[1] : '/'
 
   useEffect(() => {
-    console.log(history)
     if (!userInfo) {
       history.push(redirect)
     } else {
@@ -68,7 +67,7 @@ const ProfileScreen = ({ location, history }) => {
         setResumeLink(user.resumeLink || '')
       }
     }
-  }, [history, userInfo, dispatch, user])
+  }, [history, userInfo, dispatch, user, redirect])
 
   const handleDateFormat = (date) => {
     const dateObj = new Date(date)
@@ -114,7 +113,7 @@ const ProfileScreen = ({ location, history }) => {
         break
     }
   }
-  const validateName = () => {
+  const validateDetails = () => {
     const alphaRegex = /^[A-Za-z]+$/
     const sentenceRegex = /^[a-zA-Z]+( [a-zA-Z]+)*$/
     const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -137,13 +136,11 @@ const ProfileScreen = ({ location, history }) => {
       )
       return false
     }
+    return true
   }
   const submitHandler = async (e) => {
     e.preventDefault()
-    if (validateName()) {
-      setShow(false)
-      toastNotification('Please, Enter your details correctly', 'error')
-    } else {
+    if (validateDetails()) {
       dispatch(
         updateUserDetails({
           id: user.id,
@@ -161,6 +158,8 @@ const ProfileScreen = ({ location, history }) => {
         })
       )
       setShow(true)
+    } else {
+      setShow(false)
     }
     if (show) {
       toastNotification('Details Updated')
@@ -233,6 +232,7 @@ const ProfileScreen = ({ location, history }) => {
                 <DatePicker
                   className='w-100 form-control'
                   selected={dob}
+                  dateFormat='dd/MM/yyyy'
                   onChange={(date) => setDob(date)}
                 />
               </Form.Group>

@@ -5,8 +5,12 @@ import { authReducer } from './redux/authentication/authenticationReducer'
 import { userRegistrationReducer } from './redux/userRegistration/userRegistrationReducer'
 import { recruiterListReducer } from './redux/recruiterList/recruiterListReducer'
 import { departmentListReducer } from './redux/departmentList/departmentListReducer'
-import { userDetailsReducer } from './redux/userDetails/userDetailsReducer'
-import { userUpdateReducer } from './redux/userDetails/userDetailsReducer'
+import {
+  userDetailsReducer,
+  userUpdateReducer,
+  userListReducer,
+} from './redux/userDetails/userDetailsReducer'
+
 const reducer = combineReducers({
   userLogin: authReducer,
   userRegister: userRegistrationReducer,
@@ -14,6 +18,7 @@ const reducer = combineReducers({
   departmentList: departmentListReducer,
   userDetails: userDetailsReducer,
   userUpdate: userUpdateReducer,
+  userList: userListReducer,
 })
 const rootReducer = (state, action) => {
   if (action.type === 'USER_LOGOUT') {

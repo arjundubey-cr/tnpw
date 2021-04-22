@@ -5,6 +5,9 @@ import {
   USER_DETAILS_UPDATE_FAIL,
   USER_DETAILS_UPDATE_REQUEST,
   USER_DETAILS_UPDATE_SUCCESS,
+  USER_LIST_FAIL,
+  USER_LIST_REQUEST,
+  USER_LIST_SUCCESS,
 } from './userDetailsType'
 import { USER_LOGIN_SUCCESS } from '../authentication/authenticationType'
 import axios from 'axios'
@@ -72,6 +75,37 @@ export const updateUserDetails = (user) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: USER_DETAILS_UPDATE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
+export const listUsers = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: USER_LIST_REQUEST,
+    })
+
+    const {
+      userLogin: { userInfo },
+    } = getState()
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    }
+    const { data } = await axios.get(`/api/users`, config)
+    dispatch({
+      type: USER_LIST_SUCCESS,
+      payload: data,
+    })
+  } catch (error) {
+    dispatch({
+      type: USER_LIST_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

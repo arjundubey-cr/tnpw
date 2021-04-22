@@ -23,24 +23,14 @@ const Header = () => {
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ml-auto'>
               <NavDropdown title='Why Recruit?' id='basic-nav-dropdown'>
+                <LinkContainer to='/students'>
+                  <NavDropdown.Item>Students</NavDropdown.Item>
+                </LinkContainer>
                 <LinkContainer to='/academics'>
                   <NavDropdown.Item>Academics and Beyond</NavDropdown.Item>
                 </LinkContainer>
                 <LinkContainer to='/departments'>
                   <NavDropdown.Item>Departments</NavDropdown.Item>
-                </LinkContainer>
-              </NavDropdown>
-              <NavDropdown title='Downloads' id='basic-nav-dropdown'>
-                <>
-                  <NavDropdown.Item href='https://drive.google.com/file/d/1G1YPM_SJOeGPUsNA--H_d3zH1ncejP6x/view?usp=sharing'>
-                    Brochures
-                  </NavDropdown.Item>
-                </>
-                <LinkContainer to='/documents'>
-                  <NavDropdown.Item>Documents</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to='/guidelines'>
-                  <NavDropdown.Item>Guidelines</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
               <NavDropdown title='Team' id='basic-nav-dropdown'>
@@ -74,6 +64,11 @@ const Header = () => {
                 </LinkContainer>
               </NavDropdown>
               <NavDropdown title='For Recruiters' id='basic-nav-dropdown'>
+                <>
+                  <NavDropdown.Item href='https://drive.google.com/file/d/1G1YPM_SJOeGPUsNA--H_d3zH1ncejP6x/view?usp=sharing'>
+                    Brochures
+                  </NavDropdown.Item>
+                </>
                 <LinkContainer to='/contactus'>
                   <NavDropdown.Item>Contact Us</NavDropdown.Item>
                 </LinkContainer>
