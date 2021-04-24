@@ -8,6 +8,7 @@ import LoginScreen from './screens/LoginScreen'
 import RegistrationScreen from './screens/RegistrationScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import Students from './screens/Students'
+import StudentListScreen from './screens/StudentListScreen'
 
 const LazyPastRecruiters = React.lazy(() => import('./screens/PastRecruiters'))
 const LazyDepartmentScreen = React.lazy(() =>
@@ -42,6 +43,7 @@ const App = () => {
           <Route path='/register' component={RegistrationScreen} />
           <Route path='/profile' component={ProfileScreen} />
           <Route path='/students' component={Students} />
+          <Route path='/recruiter/studentlist' component={StudentListScreen} />
         </React.Suspense>
       </main>
       <Footer />
