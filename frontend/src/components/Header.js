@@ -5,8 +5,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../redux/authentication/authenticationAction'
 const Header = () => {
   const dispatch = useDispatch()
+
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
+
   const logoutHandler = () => {
     dispatch(logout())
   }
@@ -32,6 +34,9 @@ const Header = () => {
                 <LinkContainer to='/departments'>
                   <NavDropdown.Item>Departments</NavDropdown.Item>
                 </LinkContainer>
+                <LinkContainer to='/alumni'>
+                  <NavDropdown.Item>Alumni</NavDropdown.Item>
+                </LinkContainer>
               </NavDropdown>
               <NavDropdown title='Team' id='basic-nav-dropdown'>
                 <LinkContainer to='/administration'>
@@ -47,21 +52,25 @@ const Header = () => {
                     <LinkContainer to='/profile'>
                       <NavDropdown.Item>Profile</NavDropdown.Item>
                     </LinkContainer>
-                    <NavDropdown.Item onClick={logoutHandler}>
-                      LogOut
-                    </NavDropdown.Item>
                   </div>
                 ) : (
                   <LinkContainer to='/login'>
                     <NavDropdown.Item>Login</NavDropdown.Item>
                   </LinkContainer>
                 )}
+                <LinkContainer to='/resources'>
+                  <NavDropdown.Item>Resources</NavDropdown.Item>
+                </LinkContainer>
                 <LinkContainer to='/faq'>
                   <NavDropdown.Item>FAQ</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to='/alumni'>
-                  <NavDropdown.Item>Alumni</NavDropdown.Item>
-                </LinkContainer>
+                {userInfo ? (
+                  <NavDropdown.Item onClick={logoutHandler}>
+                    LogOut
+                  </NavDropdown.Item>
+                ) : (
+                  <></>
+                )}
               </NavDropdown>
               <NavDropdown title='For Recruiters' id='basic-nav-dropdown'>
                 <>
@@ -69,6 +78,13 @@ const Header = () => {
                     Brochures
                   </NavDropdown.Item>
                 </>
+                {userInfo.isAdmin ? (
+                  <LinkContainer to='/recruiter/studentlist'>
+                    <NavDropdown.Item>Student List</NavDropdown.Item>
+                  </LinkContainer>
+                ) : (
+                  <></>
+                )}
                 <LinkContainer to='/contactus'>
                   <NavDropdown.Item>Contact Us</NavDropdown.Item>
                 </LinkContainer>

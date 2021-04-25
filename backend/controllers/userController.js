@@ -73,6 +73,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
       mothersName: user.mothersName,
       dob: user.dob,
       cgpa: user.cgpa,
+      isAdmin: user.isAdmin,
       tenthMarks: user.tenthMarks,
       twelfthMarks: user.twelfthMarks,
       year: user.year,
@@ -123,6 +124,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       twelfthMarks: updatedUser.twelfthMarks,
       year: updatedUser.year,
       resumeLink: updatedUser.resumeLink,
+      isAdmin: user.isAdmin,
       token: generateToken(updatedUser._id),
     })
   } else {

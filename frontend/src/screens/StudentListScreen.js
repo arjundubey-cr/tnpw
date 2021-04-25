@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useTable } from 'react-table'
-import { Table } from 'react-bootstrap'
+import { Alert, Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { listUsers } from '../redux/userDetails/userDetailsAction'
 import { toastNotification } from '../components/ToastNotif'
@@ -13,13 +13,15 @@ const StudentListScreen = ({ location, history }) => {
   const userList = useSelector((state) => state.userList)
   const { loading, error, users } = userList
 
-  const userInfo = useSelector((state) => state.userInfo)
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
   const redirect = location.search ? location.search.split('=')[1] : '/'
 
   useEffect(() => {
-    if (!userInfo || !userInfo.isAdmin) {
+    if (!userInfo) {
       history.push(redirect)
     }
+
     if (dataloading || users === undefined) {
       dispatch(listUsers())
       setDataLoading(false)
@@ -54,40 +56,44 @@ const StudentListScreen = ({ location, history }) => {
 
   return (
     <div>
-      <h1>Users</h1>
-      {loading ? (
-        <h2>loading</h2>
-      ) : error ? (
-        toastNotification(error, 'error')
-      ) : (
-        <Table striped bordered hover size='sm' {...getTableProps()}>
-          <thead>
-            {headerGroups.map((headerGroup) => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps()}>
-                    {column.render('Header')}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody>
-            {rows.map((row, i) => {
-              prepareRow(row)
-              return (
-                <tr {...row.getRowProps()}>
-                  {row.cells.map((cell) => {
-                    return (
-                      <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                    )
-                  })}
+      <Alert className='heading-button text-center font-weight-bolder'>
+        My Profile
+      </Alert>
+      <div className='container'>
+        {loading ? (
+          <h2>loading</h2>
+        ) : error ? (
+          toastNotification(error, 'error')
+        ) : (
+          <Table striped bordered hover size='sm' {...getTableProps()}>
+            <thead>
+              {headerGroups.map((headerGroup) => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map((column) => (
+                    <th {...column.getHeaderProps()}>
+                      {column.render('Header')}
+                    </th>
+                  ))}
                 </tr>
-              )
-            })}
-          </tbody>
-        </Table>
-      )}
+              ))}
+            </thead>
+            <tbody>
+              {rows.map((row, i) => {
+                prepareRow(row)
+                return (
+                  <tr {...row.getRowProps()}>
+                    {row.cells.map((cell) => {
+                      return (
+                        <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                      )
+                    })}
+                  </tr>
+                )
+              })}
+            </tbody>
+          </Table>
+        )}
+      </div>
     </div>
   )
 }
