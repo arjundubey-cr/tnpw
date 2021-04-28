@@ -1,3 +1,6 @@
+//@TODO:
+//create a state for branch of study as well smh
+
 import React, { useState, useEffect } from 'react'
 import {
   Form,
@@ -250,12 +253,13 @@ const ProfileScreen = ({ location, history }) => {
                 <Form.Control
                   as='select'
                   custom
+                  defaultValue={year}
                   onChange={handleChange}
                   value={year}>
-                  <option value={1}>First Year</option>
-                  <option value={2}>Second Year</option>
-                  <option value={3}>Third Year</option>
-                  <option value={4}>Fourth Year</option>
+                  <option value={'First Year'}>First Year</option>
+                  <option value={'Second Year'}>Second Year</option>
+                  <option value={'Third Year'}>Third Year</option>
+                  <option value={'Fourth Year'}>Fourth Year</option>
                 </Form.Control>
               </Form.Group>
               <Form.Group controlId='tenthMarks'>

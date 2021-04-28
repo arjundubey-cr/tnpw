@@ -78,7 +78,7 @@ const Header = () => {
                     Brochures
                   </NavDropdown.Item>
                 </>
-                {userInfo.isAdmin ? (
+                {userInfo && userInfo.isAdmin ? (
                   <LinkContainer to='/recruiter/studentlist'>
                     <NavDropdown.Item>Student List</NavDropdown.Item>
                   </LinkContainer>

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 
-import users from './data/users.js'
+import users from './data/sampleusers.js'
 import recruiters from './data/ourRecruiters.js'
 import departmentData from './data/departmentData.js'
 

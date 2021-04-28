@@ -27,6 +27,9 @@ const LoginScreen = ({ location, history }) => {
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(login(rollNumber, password))
+    if (error) {
+      toastNotification(error, 'error')
+    }
   }
 
   return (
@@ -34,7 +37,6 @@ const LoginScreen = ({ location, history }) => {
       <Alert className='heading-button text-center font-weight-bolder'>
         Login
       </Alert>
-      {error && toastNotification(error, 'error')}
       <FormContainer>
         <Form onSubmit={submitHandler}>
           <Form.Group controlId='email'>
@@ -72,7 +74,7 @@ const LoginScreen = ({ location, history }) => {
 
         <Row className='py-3'>
           <Col>
-            New Customer?{' '}
+            New Student?{' '}
             <Link
               to={redirect ? `/register?redirect=${redirect}` : '/register'}>
               Register

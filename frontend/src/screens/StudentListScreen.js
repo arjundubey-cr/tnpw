@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useTable } from 'react-table'
+import React, { useState, useEffect, useMemo } from 'react'
+import { useTable, useSortBy } from 'react-table'
 import { Alert, Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { listUsers } from '../redux/userDetails/userDetailsAction'
@@ -18,7 +18,7 @@ const StudentListScreen = ({ location, history }) => {
   const redirect = location.search ? location.search.split('=')[1] : '/'
 
   useEffect(() => {
-    if (!userInfo) {
+    if (!userInfo || !userInfo.isAdmin) {
       history.push(redirect)
     }
 
@@ -30,48 +30,78 @@ const StudentListScreen = ({ location, history }) => {
     }
   }, [dispatch, dataloading, users, data, history, redirect, userInfo])
 
-  const columns = React.useMemo(
+  const columns = useMemo(
     () => [
+      {
+        Header: 'Roll Number',
+        accessor: 'rollNumber',
+      },
       {
         Header: 'First Name',
         accessor: 'firstName',
+        disableSortBy: true,
       },
       {
         Header: 'Last Name',
         accessor: 'lastName',
+        disableSortBy: true,
       },
       {
         Header: 'Email Address',
         accessor: 'email',
+        disableSortBy: true,
+      },
+      {
+        Header: 'CGPA',
+        accessor: 'cgpa',
+      },
+      {
+        Header: 'Year of Study',
+        accessor: 'year',
+      },
+      {
+        Header: 'Resume Link',
+        accessor: 'resumeLink',
       },
     ],
 
     []
   )
-
-  const { getTableProps, headerGroups, rows, prepareRow } = useTable({
-    columns,
-    data,
-  })
+  const { getTableProps, headerGroups, rows, prepareRow } = useTable(
+    {
+      columns,
+      data,
+    },
+    useSortBy
+  )
 
   return (
     <div>
       <Alert className='heading-button text-center font-weight-bolder'>
-        My Profile
+        Student List
       </Alert>
-      <div className='container'>
+      <div className='p-3'>
         {loading ? (
           <h2>loading</h2>
         ) : error ? (
           toastNotification(error, 'error')
         ) : (
-          <Table striped bordered hover size='sm' {...getTableProps()}>
+          <Table responsive='md' bordered hover {...getTableProps()}>
             <thead>
               {headerGroups.map((headerGroup) => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
                   {headerGroup.headers.map((column) => (
-                    <th {...column.getHeaderProps()}>
+                    <th
+                      {...column.getHeaderProps(column.getSortByToggleProps())}
+                      className='text-center bg-black'>
                       {column.render('Header')}
+                      <span>
+                        {column.isSorted
+                          ? column.isSortedDesc
+                            ? '🔻'
+                            : '🔺'
+                          : ''}
+                      </span>
                     </th>
                   ))}
                 </tr>

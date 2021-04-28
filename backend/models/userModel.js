@@ -2,6 +2,13 @@ import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
 const userSchema = mongoose.Schema(
   {
+    rollNumber: {
+      type: String,
+      unique: true,
+    },
+    branch: {
+      type: String,
+    },
     firstName: {
       type: String,
       required: true,
@@ -15,11 +22,7 @@ const userSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
-    rollNumber: {
-      type: String,
-      required: true,
-      unique: true,
-    },
+
     password: {
       type: String,
       required: true,
@@ -54,6 +57,7 @@ const userSchema = mongoose.Schema(
       type: String,
       default: '',
     },
+
     resumeLink: {
       type: String,
       default: '',
