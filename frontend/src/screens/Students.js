@@ -1,4 +1,5 @@
-import { Alert, Container } from 'react-bootstrap'
+import { Alert, Container, Image } from 'react-bootstrap'
+import internorg from '../assets/images/internorg.jpeg'
 const Students = () => {
   return (
     <div>
@@ -28,7 +29,8 @@ const Students = () => {
             <br />
           </p>
         </div>
-        <div>
+
+        <div className='pt-4'>
           <h2 className='text-center'>Training Methodologies</h2>
           <p>
             We can prodly say that 100% of studenst enrolled in 3rd Year have
@@ -39,6 +41,23 @@ const Students = () => {
             the Training and Placement Cell has been effective in garnering
             results.
           </p>
+        </div>
+
+        <div className='pt-4'>
+          <h2 className='text-center'>Internships</h2>
+          <p>
+            Our students have been placed in summer internships to make them
+            bussiness-ready and hone their industry expertise. These internships
+            are invaluable in the broadening of skill-sets, acumen and outlook
+            of our students. Training and Placement Cell has provided assistance
+            at every step, including providing details of internship
+            oppurtunities, company links etc. to our students. Some of the
+            notable companies where our third year students have interned
+            include, but are not limited to:
+          </p>
+          <Image
+            src={internorg}
+            className='d-block mr-auto ml-auto w-75'></Image>
         </div>
       </Container>
     </div>
