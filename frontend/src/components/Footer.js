@@ -2,8 +2,8 @@ import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 const Footer = () => {
   return (
-    <footer className='pl-md-5 pt-md-5 mx-md-5 pt-4'>
-      <Container fluid>
+    <footer className='footer'>
+      <Container className='pt-4' fluid>
         <Row className='justify-content-between'>
           <Col sm={12} md={4}>
             <h5>TnP | FoET</h5>
@@ -29,12 +29,14 @@ const Footer = () => {
             </div>
           </Col>
         </Row>
-        <Row className='justify-content-between pl-md-5 pr-md-5'>
-          <Col>&copy; 2021 TnP, FoET. All Rights Reserved</Col>
-          <Col className='text-right'>
+        <Col>
+          <div className='text-center'>
+            &copy; 2021 TnP, FoET. All Rights Reserved
+          </div>
+          <div className='text-center'>
             Developed by <strong>Arjun Dubey</strong>
-          </Col>
-        </Row>
+          </div>
+        </Col>
       </Container>
     </footer>
   )

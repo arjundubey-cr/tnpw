@@ -9,7 +9,7 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 main {
-  color: #264653;
+  color: #272727;
   font-size: 18px;
   min-height: 70vh;
   font-family: inherit;
@@ -22,13 +22,13 @@ main {
 }
 
 .ranking-card .card .card-header {
-  background-color: #5c95ff;
+  background-color: #d4aa7d;
   color: white;
 }
 .heading-button {
-  background-color: #2a9d8f !important;
+  background-color: #d4aa7d !important;
   border-radius: 0% !important;
-  border-color: #2a9d8f !important;
+  border-color: #d4aa7d !important;
   font-weight: 900;
   font-size: 35px !important;
 }
@@ -40,7 +40,7 @@ main {
   border: 1px line black !important;
 }
 .card-header {
-  background-color: #2a9d8f !important;
+  background-color: #d4aa7d !important;
 }
 .department-list .department-name-card {
   width: 100% !important;
@@ -58,9 +58,12 @@ main {
   border: none;
 }
 .recruiter {
-  background-color: #f5eccd;
+  background-color: #d4aa7d;
   color: #564e58 !important;
 }
 .react-datepicker-wrapper {
   display: block !important;
+}
+.footer {
+  background-color: #efd09e;
 }

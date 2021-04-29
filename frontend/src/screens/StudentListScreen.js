@@ -58,10 +58,12 @@ const StudentListScreen = ({ location, history }) => {
       {
         Header: 'Year of Study',
         accessor: 'year',
+        disableSortBy: true,
       },
       {
         Header: 'Resume Link',
         accessor: 'resumeLink',
+        disableSortBy: true,
       },
     ],
 

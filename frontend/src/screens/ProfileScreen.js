@@ -32,7 +32,7 @@ const ProfileScreen = ({ location, history }) => {
   const [cgpa, setCgpa] = useState(0)
   const [tenthMarks, setTenthMarks] = useState(0)
   const [twelfthMarks, setTwelfthMarks] = useState(0)
-  const [year, setYear] = useState(0)
+  const [year, setYear] = useState('')
   const [resumeLink, setResumeLink] = useState('')
   const [show, setShow] = useState(true)
 
@@ -253,9 +253,8 @@ const ProfileScreen = ({ location, history }) => {
                 <Form.Control
                   as='select'
                   custom
-                  defaultValue={year}
-                  onChange={handleChange}
-                  value={year}>
+                  value={year}
+                  onChange={handleChange}>
                   <option value={'First Year'}>First Year</option>
                   <option value={'Second Year'}>Second Year</option>
                   <option value={'Third Year'}>Third Year</option>
