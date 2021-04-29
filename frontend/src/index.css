@@ -17,6 +17,7 @@ main {
   font-size: 18px;
   min-height: 70vh;
   font-family: inherit;
+  background-color: #e0e0e0;
 }
 .nav-link {
   color: inherit !important;
@@ -28,6 +29,11 @@ main {
 .ranking-card .card .card-header {
   background-color: var(--primary-color);
   color: white;
+}
+.ranking-card .card {
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: inset 28px 28px 57px #bebebe, inset -28px -28px 57px #ffffff;
 }
 .heading-button {
   background-color: var(--primary-color) !important;
@@ -69,5 +75,5 @@ main {
   display: block !important;
 }
 .footer {
-  background-color: #e4f0d0;
+  border-top: 1px solid #333232;
 }

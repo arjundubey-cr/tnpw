@@ -4,7 +4,7 @@ import THElogo from '../assets/images/THElogo.png'
 const HomeScreen = () => {
   return (
     <div className='container'>
-      <h1 className='mt-5 text-center'>
+      <h1 className='pt-5 text-center'>
         Welcome to Training and Placement Cell, FoET
       </h1>
 
