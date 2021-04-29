@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 const Footer = () => {
   return (
     <footer className='footer'>
-      <Container className='pt-4' fluid>
+      <Container className='pt-4'>
         <Row className='justify-content-between'>
           <Col sm={12} md={4}>
             <h5>TnP | FoET</h5>
@@ -16,9 +16,6 @@ const Footer = () => {
           </Col>
           <Col sm={12} md={4} lg={3}>
             <h6>Useful Links</h6>
-          </Col>
-          <Col sm={12} md={4} lg={3}>
-            <h6>External Links</h6>
           </Col>
           <Col sm={12} md={4} lg={2}>
             <h6>Social Networks</h6>
