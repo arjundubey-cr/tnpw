@@ -16,7 +16,7 @@ const HomeScreen = () => {
             {' '}
             <strong>Amongst the</strong>{' '}
           </Card.Header>
-          <Card.Img variant='top' src={THElogo}></Card.Img>
+          <Card.Img variant='top' src={THElogo} className='m-2' />
           <Card.Title>Top 1000</Card.Title>
           <Card.Text>
             Universities Globally for <br /> Engineering and Technology

@@ -12,12 +12,26 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
 }
+.navbar {
+  background-color: #e0e0e0 !important;
+}
+body {
+  background-color: #e0e0e0 !important;
+}
+
 main {
   color: var(--text-color);
   font-size: 18px;
   min-height: 70vh;
   font-family: inherit;
-  background-color: #e0e0e0;
+}
+.shadow-neuro {
+  background: #e0e0e0 !important;
+  box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff !important;
+}
+.navbar-brand {
+  border-radius: 0.55rem !important;
+  border: #d1d9e6 !important;
 }
 .nav-link {
   color: inherit !important;
@@ -25,15 +39,19 @@ main {
   font-size: 15px;
   outline: 0;
 }
-
+.dropdown-menu {
+  background-color: #e0e0e0 !important;
+  box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
+}
 .ranking-card .card .card-header {
   background-color: var(--primary-color);
   color: white;
 }
 .ranking-card .card {
+  border: none !important;
   border-radius: 50px;
   background: #e0e0e0;
-  box-shadow: inset 28px 28px 57px #bebebe, inset -28px -28px 57px #ffffff;
+  box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
 }
 .heading-button {
   background-color: var(--primary-color) !important;
@@ -51,6 +69,10 @@ main {
 }
 .card-header {
   background-color: var(--primary-color) !important;
+  border-radius: 50px 50px 0px 0px !important;
+}
+.card-img-top {
+  width: 95% !important;
 }
 .department-list .department-name-card {
   width: 100% !important;

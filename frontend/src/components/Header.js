@@ -14,10 +14,10 @@ const Header = () => {
   }
   return (
     <header>
-      <Navbar bg='light' variant='light' expand='lg' collapseOnSelect>
+      <Navbar expand='lg' collapseOnSelect className='mt-lg-2'>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand>
+            <Navbar.Brand className='shadow-neuro py-2 px-2 mr-lg-4'>
               <h4>TnP | FoET </h4>
             </Navbar.Brand>
           </LinkContainer>
@@ -38,6 +38,7 @@ const Header = () => {
                   <NavDropdown.Item>Alumni</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
+
               <NavDropdown title='Team' id='basic-nav-dropdown'>
                 <LinkContainer to='/administration'>
                   <NavDropdown.Item>Administration</NavDropdown.Item>
