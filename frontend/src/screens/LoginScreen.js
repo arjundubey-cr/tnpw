@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Form, Button, Row, Col, Alert, Spinner } from 'react-bootstrap'
+import { Form, Button, Row, Col, Alert, Spinner, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../components/FormContainer'
 import { login } from '../redux/authentication/authenticationAction'
@@ -37,50 +37,52 @@ const LoginScreen = ({ location, history }) => {
       <Alert className='heading-button text-center font-weight-bolder'>
         Login
       </Alert>
-      <FormContainer>
-        <Form onSubmit={submitHandler}>
-          <Form.Group controlId='email'>
-            <Form.Label>Roll Number</Form.Label>
-            <Form.Control
-              type='string'
-              placeholder='Enter University Roll Number'
-              value={rollNumber}
-              onChange={(e) => setRollNumber(e.target.value)}></Form.Control>
-          </Form.Group>
+      <FormContainer className='col-12 col-md-8 col-lg-6'>
+        <Card className='login-card shadow-neuro'>
+          <Form onSubmit={submitHandler}>
+            <Form.Group controlId='email'>
+              <Form.Label>Roll Number</Form.Label>
+              <Form.Control
+                type='string'
+                placeholder='Enter University Roll Number'
+                value={rollNumber}
+                onChange={(e) => setRollNumber(e.target.value)}></Form.Control>
+            </Form.Group>
 
-          <Form.Group controlId='password'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type='password'
-              placeholder='Enter password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}></Form.Control>
-          </Form.Group>
+            <Form.Group controlId='password'>
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type='password'
+                placeholder='Enter password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}></Form.Control>
+            </Form.Group>
 
-          <Button type='submit' variant='primary'>
-            {loading ? (
-              <Spinner
-                as='span'
-                animation='border'
-                size='sm'
-                role='status'
-                aria-hidden='true'
-              />
-            ) : (
-              <>Sign In</>
-            )}
-          </Button>
-        </Form>
+            <Button type='submit' variant='primary'>
+              {loading ? (
+                <Spinner
+                  as='span'
+                  animation='border'
+                  size='sm'
+                  role='status'
+                  aria-hidden='true'
+                />
+              ) : (
+                <>Sign In</>
+              )}
+            </Button>
+          </Form>
 
-        <Row className='py-3'>
-          <Col>
-            New Student?{' '}
-            <Link
-              to={redirect ? `/register?redirect=${redirect}` : '/register'}>
-              Register
-            </Link>
-          </Col>
-        </Row>
+          <Row className='py-3'>
+            <Col>
+              New Student?{' '}
+              <Link
+                to={redirect ? `/register?redirect=${redirect}` : '/register'}>
+                Register
+              </Link>
+            </Col>
+          </Row>
+        </Card>
       </FormContainer>
     </div>
   )

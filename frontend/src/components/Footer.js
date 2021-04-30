@@ -2,17 +2,17 @@ import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 const Footer = () => {
   return (
-    <footer className='footer'>
+    <footer className='footer mb-2'>
       <Container className='pt-4'>
         <Row className='justify-content-between'>
           <Col sm={12} md={4}>
             <h5>TnP | FoET</h5>
-            <address>
+            <p>
               Training and Placement Cell <br />
               AB-2, Faculty of Engineering and Technology <br />
               University of Lucknow New Campus <br />
               Jankipuram, Lucknow - 226021
-            </address>
+            </p>
           </Col>
           <Col sm={12} md={4} lg={3}>
             <h6>Useful Links</h6>

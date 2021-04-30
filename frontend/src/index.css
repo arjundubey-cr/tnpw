@@ -17,6 +17,7 @@ html {
 }
 body {
   background-color: #e0e0e0 !important;
+  color: var(--text-color);
 }
 
 main {
@@ -29,11 +30,12 @@ main {
   background: #e0e0e0 !important;
   box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff !important;
 }
-.sticky-nav {
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 100;
-  box-shadow: inset 6px 6px 12px #b8b9be, inset -6px -6px 12px #ffffff;
+.inward-neuro {
+  background: #e0e0e0 !important;
+  box-shadow: inset 6px 6px 12px #bebebe, inset -6px -6px 12px #ffffff !important;
+}
+.navbar {
+  border-bottom: 0.0625rem solid #c0c7d3 !important;
 }
 .navbar-brand {
   border-radius: 0.55rem !important;
@@ -50,13 +52,20 @@ main {
   background-color: #e0e0e0 !important;
   box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
 }
-
+.navbar-toggler {
+  background-color: #e0e0e0 !important;
+  box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
+}
+.navbar-toggler:focus {
+  box-shadow: inset 2px 2px 5px #bebebe, inset -3px -3px 6px #ffffff;
+}
 .dropdown-item {
   font-size: 14px !important;
 }
 .dropdown-item:hover,
 .dropdown-item:focus {
   background-color: #e0e0e0 !important;
+  color: var(--text-color) !important;
   box-shadow: inset 2px 2px 5px #bebebe, inset -3px -3px 6px #ffffff;
 }
 .dropdown-item.active {
@@ -81,6 +90,9 @@ main {
   border-color: var(--primary-color) !important;
   font-weight: 900;
   font-size: 35px !important;
+  border-radius: 50px;
+  background: #cdb4db;
+  box-shadow: inset 5px 5px 10px #ae99ba, inset -5px -5px 10px #eccffc;
 }
 
 .department-list {
@@ -119,5 +131,16 @@ main {
   display: block !important;
 }
 .footer {
-  border-top: 1px solid #333232;
+  background: #e0e0e0;
+  border-top: 0.0625rem solid #c0c7d3 !important;
+}
+
+/* Login Page */
+.form-control {
+  background: #e0e0e0 !important;
+  box-shadow: inset 2px 2px 5px #bebebe, inset -3px -3px 7px #ffffff !important;
+}
+.login-card {
+  background: #e0e0e0 !important;
+  border: none !important;
 }
