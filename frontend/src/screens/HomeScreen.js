@@ -10,13 +10,13 @@ const HomeScreen = () => {
 
       <div className='ranking-card'>
         <Card
-          style={{ width: '18rem' }}
-          className='mx-auto text-center mb-5 mt-5'>
+          style={{ width: '20rem' }}
+          className='mx-auto text-center mb-5 mt-5 p-2'>
           <Card.Header>
             {' '}
             <strong>Amongst the</strong>{' '}
           </Card.Header>
-          <Card.Img variant='top' src={THElogo} className='m-2' />
+          <Card.Img variant='top' src={THElogo} className='mx-auto' />
           <Card.Title>Top 1000</Card.Title>
           <Card.Text>
             Universities Globally for <br /> Engineering and Technology

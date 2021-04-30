@@ -29,20 +29,42 @@ main {
   background: #e0e0e0 !important;
   box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff !important;
 }
+.sticky-nav {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100;
+  box-shadow: inset 6px 6px 12px #b8b9be, inset -6px -6px 12px #ffffff;
+}
 .navbar-brand {
   border-radius: 0.55rem !important;
   border: #d1d9e6 !important;
 }
 .nav-link {
   color: inherit !important;
-  font-weight: 700 !important;
+  font-weight: 900 !important;
   font-size: 15px;
   outline: 0;
 }
+
 .dropdown-menu {
   background-color: #e0e0e0 !important;
   box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
 }
+
+.dropdown-item {
+  font-size: 14px !important;
+}
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: #e0e0e0 !important;
+  box-shadow: inset 2px 2px 5px #bebebe, inset -3px -3px 6px #ffffff;
+}
+.dropdown-item.active {
+  background-color: inherit !important;
+  color: var(--text-color) !important;
+  font-weight: 600 !important;
+}
+
 .ranking-card .card .card-header {
   background-color: var(--primary-color);
   color: white;

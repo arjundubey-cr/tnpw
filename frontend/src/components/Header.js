@@ -13,8 +13,8 @@ const Header = () => {
     dispatch(logout())
   }
   return (
-    <header>
-      <Navbar expand='lg' collapseOnSelect className='mt-lg-2'>
+    <>
+      <Navbar expand='lg' collapseOnSelect className='pt-lg-2 sticky-nav'>
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand className='shadow-neuro py-2 px-2 mr-lg-4'>
@@ -100,7 +100,7 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </header>
+    </>
   )
 }
 
