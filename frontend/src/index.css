@@ -74,13 +74,9 @@ main {
   font-weight: 600 !important;
 }
 
-.ranking-card .card .card-header {
-  background-color: var(--primary-color);
-  color: white;
-}
 .ranking-card .card {
   border: none !important;
-  border-radius: 50px;
+  border-radius: 25px;
   background: #e0e0e0;
   box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
 }
@@ -98,13 +94,12 @@ main {
 .department-list {
   margin-top: 15px;
 }
-.department-list .card {
-  border: 1px line black !important;
-}
 .card-header {
   background-color: var(--primary-color) !important;
-  border-radius: 50px 50px 0px 0px !important;
+  border-radius: 25px 25px 0px 0px !important;
+  color: white;
 }
+
 .card-img-top {
   width: 95% !important;
 }
@@ -117,8 +112,10 @@ main {
 .department-list .contact-person-card {
   width: 100% !important;
 }
-.department-list .card .card-header {
-  color: white;
+.department-list .card {
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 25px;
 }
 .map {
   border: none;

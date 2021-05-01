@@ -31,7 +31,7 @@ const DepartmentScreen = () => {
         {data ? (
           data.map((value) => (
             <div className='department-list row  d-flex justify-content-between pb-5'>
-              <Card className='department-name-card col-md-6 col-lg-3 p-0'>
+              <Card className='department-name-card col-md-6 col-lg-4 shadow-neuro p-1'>
                 <Card.Header className='text-center font-weight-bold'>
                   Department Name
                 </Card.Header>
@@ -41,7 +41,7 @@ const DepartmentScreen = () => {
                   </Card.Title>
                 </Card.Body>
               </Card>
-              <Card className='displines-name-card col-md-5 col-lg-3 p-0'>
+              <Card className='displines-name-card col-md-5 col-lg-4 p-0 shadow-neuro p-1'>
                 <Card.Header className='text-center font-weight-bold'>
                   Disciplines
                 </Card.Header>
@@ -55,7 +55,7 @@ const DepartmentScreen = () => {
                   </Card.Text>
                 </Card.Body>
               </Card>
-              <Card className='contact-person-card col-md-5  col-lg-3 p-0'>
+              <Card className='contact-person-card col-md-5 col-lg-3 shadow-neuro p-1'>
                 <Card.Header className='text-center font-weight-bold'>
                   Contact Person
                 </Card.Header>
