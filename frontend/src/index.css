@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap');
+
 :root {
   --primary-color: #cdb4db;
   --text-color: #333232;
+  --font-family: 'Nunito Sans', Arial, Helvetica, sans-serif;
 }
 *,
 *::before,
@@ -15,16 +18,18 @@ html {
 .navbar {
   background-color: #e0e0e0 !important;
 }
-body {
+body,
+p {
   background-color: #e0e0e0 !important;
   color: var(--text-color);
+  font-family: var(--font-family);
 }
-
 main {
   color: var(--text-color);
   font-size: 18px;
   min-height: 70vh;
   font-family: inherit;
+  padding-bottom: 20px;
 }
 .shadow-neuro {
   background: #e0e0e0 !important;
@@ -33,6 +38,29 @@ main {
 .inward-neuro {
   background: #e0e0e0 !important;
   box-shadow: inset 6px 6px 12px #bebebe, inset -6px -6px 12px #ffffff !important;
+}
+/* Toastify css */
+.Toastify__toast--success {
+  background: #e6e7ee !important;
+  color: #18634b;
+  box-shadow: 3px 3px 6px #bebebe, -3px -3px 6px #ffffff !important;
+  border: 00.0625rem solid #c0c7d3 !important;
+  font-family: 'Nunito Sans' !important;
+  font-weight: bold;
+}
+.Toastify__toast--error {
+  background: #e6e7ee !important;
+  color: #a91e2c;
+  box-shadow: 3px 3px 6px #bebebe, -3px -3px 6px #ffffff !important;
+  border: 00.0625rem solid #c0c7d3 !important;
+  font-family: 'Nunito Sans' !important;
+  font-weight: bolder;
+}
+.Toastify__close-button {
+  display: none;
+}
+.Toastify__progress-bar {
+  background-color: #31344b !important;
 }
 .navbar {
   border-bottom: 0.0625rem solid #c0c7d3 !important;
@@ -118,9 +146,7 @@ main {
   border: none;
   border-radius: 25px;
 }
-.map {
-  border: none;
-}
+
 .recruiter {
   background-color: var(--primary-color);
   color: #564e58 !important;
@@ -134,7 +160,8 @@ main {
 }
 
 /* Login Page */
-.form-control {
+.form-control,
+.custom-select {
   background: #e0e0e0 !important;
   box-shadow: inset 2px 2px 5px #bebebe, inset -3px -3px 7px #ffffff !important;
 }
@@ -146,7 +173,6 @@ main {
   background-color: #e0e0e0 !important;
   border-color: #e0e0e0 !important;
   color: #31344b !important;
-  font-size: 18px !important;
   font-weight: 900 !important;
   -webkit-box-shadow: 2px 2px 5px #bebebe, -3px -3px 7px #ffffff;
   box-shadow: 2px 2px 5px #bebebe, -3px -3px 7px #ffffff;
@@ -171,4 +197,16 @@ main {
   height: 5.5rem;
   background: #e0e0e0 !important;
   box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff !important;
+}
+.map {
+  border: none;
+}
+.contact-link {
+  color: var(--text-color);
+  font-weight: 600 !important;
+}
+.contact-link:hover {
+  text-decoration: underline;
+  font-weight: 700;
+  color: var(--text-color);
 }

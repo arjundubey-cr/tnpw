@@ -14,10 +14,10 @@ const Header = () => {
   }
   return (
     <>
-      <Navbar expand='lg' collapseOnSelect className='pt-lg-2'>
+      <Navbar expand='lg' collapseOnSelect className='inward-neuro pt-lg-2'>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand className='shadow-neuro py-2 px-2 mr-lg-4'>
+            <Navbar.Brand className='py-2 px-2 mr-lg-4'>
               <div className='font-weight-bolder brand-name'>TnP | FoET </div>
             </Navbar.Brand>
           </LinkContainer>

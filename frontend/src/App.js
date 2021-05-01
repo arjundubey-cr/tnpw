@@ -22,7 +22,7 @@ const LazyContactScreen = React.lazy(() => import('./screens/ContactScreen'))
 const App = () => {
   return (
     <Router>
-      <ToastContainer limit={1} />
+      <ToastContainer limit={1} autoClose={10000} />
       <Header />
       <main>
         <React.Suspense fallback={<div>Loading...</div>}>

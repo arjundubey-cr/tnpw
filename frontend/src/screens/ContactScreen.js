@@ -28,14 +28,18 @@ const ContactScreen = () => {
                 <Mail className='d-block m-auto' />
               </div>
               <div className='font-weight-bold mb-2 mt-1'>Mail Us</div>
-              <a href='mailto:tpcfoet@gmail.com'>tpcfet.lu@gmail.com</a>
+              <a className='contact-link' href='mailto:tpcfoet@gmail.com'>
+                tpcfet.lu@gmail.com
+              </a>
             </div>
             <div className='col-md-4 col-lg-4 text-center justify-center'>
               <div className='icon d-inline-flex align-items-center'>
                 <Phone className='d-block m-auto' />
               </div>
               <div className='font-weight-bold mb-2 mt-1'>Call Us</div>
-              <a href='tel:+917905287870'>+91-705287870</a>
+              <a className='contact-link' href='tel:+917905287870'>
+                +91-705287870
+              </a>
             </div>
           </Row>
           <Row className='inward-neuro p-4 mb-5 rounded'>
