@@ -57,6 +57,7 @@ main {
   box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
 }
 .navbar-toggler:focus {
+  outline: none;
   box-shadow: inset 2px 2px 5px #bebebe, inset -3px -3px 6px #ffffff;
 }
 .dropdown-item {
@@ -140,4 +141,34 @@ main {
 .login-card {
   background: #e0e0e0 !important;
   border: none !important;
+}
+.btn-primary {
+  background-color: #e0e0e0 !important;
+  border-color: #e0e0e0 !important;
+  color: #31344b !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  -webkit-box-shadow: 2px 2px 5px #bebebe, -3px -3px 7px #ffffff;
+  box-shadow: 2px 2px 5px #bebebe, -3px -3px 7px #ffffff;
+}
+.btn-primary:hover {
+  color: #31344b;
+  background-color: #e0e0e0;
+  border-color: #e0e0e0;
+  -webkit-box-shadow: inset 2px 2px 5px #bebebe, inset -3px -3px 7px #ffffff;
+  box-shadow: inset 2px 2px 5px #bebebe, inset -3px -3px 7px #ffffff;
+}
+.btn:focus {
+  outline: 0;
+  -webkit-box-shadow: inset 2px 2px 5px #bebebe, inset -3px -3px 7px #ffffff;
+  box-shadow: inset 2px 2px 5px #bebebe, inset -3px -3px 7px #ffffff;
+}
+
+/* Contact Details Page */
+.icon {
+  border-radius: 50%;
+  width: 5.5rem;
+  height: 5.5rem;
+  background: #e0e0e0 !important;
+  box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff !important;
 }

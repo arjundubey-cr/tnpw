@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Form, Button, Row, Col, Alert, Spinner, Card } from 'react-bootstrap'
+import {
+  Form,
+  Button,
+  Row,
+  Col,
+  Alert,
+  Spinner,
+  Card,
+  Container,
+} from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../components/FormContainer'
 import { login } from '../redux/authentication/authenticationAction'
@@ -37,12 +46,13 @@ const LoginScreen = ({ location, history }) => {
       <Alert className='heading-button text-center font-weight-bolder'>
         Login
       </Alert>
-      <FormContainer className='col-12 col-md-8 col-lg-6'>
-        <Card className='login-card shadow-neuro'>
+      <Container className='col-12 col-md-5 col-lg-4'>
+        <Card className='login-card shadow-neuro p-5'>
           <Form onSubmit={submitHandler}>
             <Form.Group controlId='email'>
               <Form.Label>Roll Number</Form.Label>
               <Form.Control
+                required
                 type='string'
                 placeholder='Enter University Roll Number'
                 value={rollNumber}
@@ -52,13 +62,14 @@ const LoginScreen = ({ location, history }) => {
             <Form.Group controlId='password'>
               <Form.Label>Password</Form.Label>
               <Form.Control
+                required
                 type='password'
                 placeholder='Enter password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}></Form.Control>
             </Form.Group>
 
-            <Button type='submit' variant='primary'>
+            <Button block type='submit' variant='primary' className='mt-4'>
               {loading ? (
                 <Spinner
                   as='span'
@@ -73,17 +84,18 @@ const LoginScreen = ({ location, history }) => {
             </Button>
           </Form>
 
-          <Row className='py-3'>
+          <Row className='pt-4 text-center'>
             <Col>
               New Student?{' '}
               <Link
+                className='font-weight-bolder'
                 to={redirect ? `/register?redirect=${redirect}` : '/register'}>
                 Register
               </Link>
             </Col>
           </Row>
         </Card>
-      </FormContainer>
+      </Container>
     </div>
   )
 }

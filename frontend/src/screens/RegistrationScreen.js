@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Form, Button, Row, Col, Spinner } from 'react-bootstrap'
+import {
+  Form,
+  Button,
+  Row,
+  Col,
+  Spinner,
+  Container,
+  Alert,
+  Card,
+} from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import FormContainer from '../components/FormContainer'
 import { register } from '../redux/userRegistration/userRegistrationAction'
 import { toastNotification } from '../components/ToastNotif'
 const RegistrationScreen = ({ location, history }) => {
@@ -72,73 +80,80 @@ const RegistrationScreen = ({ location, history }) => {
   }
 
   return (
-    <FormContainer>
-      <h1>Sign Up</h1>
+    <div>
+      <Alert className='heading-button text-center font-weight-bolder'>
+        Register
+      </Alert>
       {/* {loading && <Message variant='info'>Loading...</Message>} */}
-      <Form onSubmit={submitHandler}>
-        <Form.Group controlId='firstName'>
-          <Form.Label>First Name</Form.Label>
-          <Form.Control
-            type='firstName'
-            placeholder='First Name'
-            value={firstName}
-            onChange={handleChange}></Form.Control>
-        </Form.Group>
-        <Form.Group controlId='lastName'>
-          <Form.Label>Last Name</Form.Label>
-          <Form.Control
-            type='lastName'
-            placeholder='Last Name'
-            value={lastName}
-            onChange={handleChange}></Form.Control>
-        </Form.Group>
-        <Form.Group controlId='rollNumber'>
-          <Form.Label>Roll Number</Form.Label>
-          <Form.Control
-            type='string'
-            placeholder='Enter University Roll Number'
-            value={rollNumber}
-            onChange={handleChange}></Form.Control>
-        </Form.Group>
-        <Form.Group controlId='email'>
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type='email'
-            placeholder='Enter Email'
-            value={email}
-            onChange={handleChange}></Form.Control>
-        </Form.Group>
-        <Form.Group controlId='password'>
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type='password'
-            placeholder='Enter password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}></Form.Control>
-        </Form.Group>
-        <Form.Group controlId='confirmpassword'>
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control
-            type='password'
-            placeholder='Confirm password'
-            value={confirmPassword}
-            onChange={(e) => setconfirmPassword(e.target.value)}></Form.Control>
-        </Form.Group>
-        <Button type='submit' variant='primary'>
-          {loading ? (
-            <Spinner
-              as='span'
-              animation='border'
-              size='sm'
-              role='status'
-              aria-hidden='true'
-            />
-          ) : (
-            <>Register</>
-          )}
-        </Button>
-      </Form>
-
+      <Container className='col-12 col-md-5 col-lg-4'>
+        <Card className='shadow-neuro p-5'>
+          <Form onSubmit={submitHandler}>
+            <Form.Group controlId='firstName'>
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                type='firstName'
+                placeholder='First Name'
+                value={firstName}
+                onChange={handleChange}></Form.Control>
+            </Form.Group>
+            <Form.Group controlId='lastName'>
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                type='lastName'
+                placeholder='Last Name'
+                value={lastName}
+                onChange={handleChange}></Form.Control>
+            </Form.Group>
+            <Form.Group controlId='rollNumber'>
+              <Form.Label>Roll Number</Form.Label>
+              <Form.Control
+                type='string'
+                placeholder='Enter University Roll Number'
+                value={rollNumber}
+                onChange={handleChange}></Form.Control>
+            </Form.Group>
+            <Form.Group controlId='email'>
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type='email'
+                placeholder='Enter Email'
+                value={email}
+                onChange={handleChange}></Form.Control>
+            </Form.Group>
+            <Form.Group controlId='password'>
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type='password'
+                placeholder='Enter password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}></Form.Control>
+            </Form.Group>
+            <Form.Group controlId='confirmpassword'>
+              <Form.Label>Confirm Password</Form.Label>
+              <Form.Control
+                type='password'
+                placeholder='Confirm password'
+                value={confirmPassword}
+                onChange={(e) =>
+                  setconfirmPassword(e.target.value)
+                }></Form.Control>
+            </Form.Group>
+            <Button type='submit' variant='primary'>
+              {loading ? (
+                <Spinner
+                  as='span'
+                  animation='border'
+                  size='sm'
+                  role='status'
+                  aria-hidden='true'
+                />
+              ) : (
+                <>Register</>
+              )}
+            </Button>
+          </Form>
+        </Card>
+      </Container>
       <Row className='py-3'>
         <Col>
           Have an Account?{' '}
@@ -147,7 +162,7 @@ const RegistrationScreen = ({ location, history }) => {
           </Link>
         </Col>
       </Row>
-    </FormContainer>
+    </div>
   )
 }
 
