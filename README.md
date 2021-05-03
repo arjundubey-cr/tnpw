@@ -166,5 +166,5 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [license-shield]: https://img.shields.io/github/license/arjundubey-cr/tnpw.svg?style=for-the-badge
 [license-url]: https://github.com/arjundubey-cr/tnpw/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-url]: https://linkedin.com/in/arjundubeycr
 [product-screenshot]: images/screenshot.png
