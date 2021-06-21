@@ -9,7 +9,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/arjundubey-cr/tnpweb">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://scontent.fagr1-2.fna.fbcdn.net/v/t1.6435-9/83747697_1037778316576420_3166785116550725632_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=973b4a&_nc_ohc=U6a0Y45KZhkAX_7adn8&_nc_ht=scontent.fagr1-2.fna&oh=08f45c72af5598f5adf45d00bfdcf061&oe=60D576A6" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Training and Placement Cell Website</h3>
@@ -44,7 +44,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -77,32 +76,52 @@ Features:
 
 <!-- GETTING STARTED -->
 
-## Getting Started
+## Contributing
 
-To contribute to the project
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+To contribute/extend to this project it is recommended to have an understanding of following:
 
-- git
+- JavaScript
+- MERN Stack(MongoDB, Express, React JS, Node.js)
+- Bootstrap
+- Git
+- JWT
+
+### Setting up Local Development Environment
+
+1. Fork the Project
 
 ```git
-git clone git@github.com:arjundubey-cr/tnpw.git
+git clone git@github.com:<your_github_username>/tnpw.git
 ```
 
-- npm
-  ```sh
-  cd
-  ```
+2. Generate your Mongo URI from https://mongodb.com and create a .env in root with the following content.
 
-<!-- USAGE EXAMPLES -->
+```sh
+MONGO_URI = <PUT_MONGO_URI_HERE>
+```
 
-## Usage
+3. Follow these commands to install all the dependencies and start the development server on your local machine.
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+```sh
+  cd tnpw
+  npm install
+  cd frontend
+  npm install
+  cd ..
+  npm run dev
+```
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+4. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+
+5. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+
+6. Push to the Branch (`git push origin feature/AmazingFeature`)
+
+7. Open a Pull Request
 
 <!-- ROADMAP -->
 
@@ -110,23 +129,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 See the [open issues](https://github.com/arjundubey-cr/tnpw/issues) for a list of proposed features (and known issues).
 
-<!-- CONTRIBUTING -->
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<!-- LICENSE -->
-
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the AGPLv3 License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 
@@ -134,23 +139,11 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Your Name - [Arjun Dubey](https://linkedin.com/in/arjundubeycr) - arjundubey@pm.me
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
 <!-- ACKNOWLEDGEMENTS -->
-
+<!--
 ## Acknowledgements
 
-- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-- [Img Shields](https://shields.io)
-- [Choose an Open Source License](https://choosealicense.com)
-- [GitHub Pages](https://pages.github.com)
-- [Animate.css](https://daneden.github.io/animate.css)
-- [Loaders.css](https://connoratherton.com/loaders)
-- [Slick Carousel](https://kenwheeler.github.io/slick)
-- [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-- [Sticky Kit](http://leafo.net/sticky-kit)
-- [JVectorMap](http://jvectormap.com)
-- [Font Awesome](https://fontawesome.com)
+- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet) -->
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
