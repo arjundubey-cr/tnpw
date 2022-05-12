@@ -141,4 +141,8 @@ const getUsers = asyncHandler(async (req, res) => {
   res.json(users)
 })
 
+//@desc Get list of companies
+//@route GET /api/companies/application
+//@access Private
+
 export { authUser, registerUser, getUserProfile, updateUserProfile, getUsers }

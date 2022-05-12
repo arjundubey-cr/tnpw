@@ -8,9 +8,9 @@ import {
   USER_LIST_FAIL,
   USER_LIST_REQUEST,
   USER_LIST_SUCCESS,
-} from './userDetailsType'
-import { USER_LOGIN_SUCCESS } from '../authentication/authenticationType'
-import axios from 'axios'
+} from "./userDetailsType"
+import { USER_LOGIN_SUCCESS } from "../authentication/authenticationType"
+import axios from "axios"
 
 export const getUserDetails = (id) => async (dispatch, getState) => {
   try {
@@ -36,9 +36,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
     dispatch({
       type: USER_DETAILS_FAIL,
       payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+        error.response && error.response.data.message ? error.response.data.message : error.message,
     })
   }
 }
@@ -71,14 +69,12 @@ export const updateUserDetails = (user) => async (dispatch, getState) => {
       type: USER_LOGIN_SUCCESS,
       payload: data,
     })
-    localStorage.setItem('userInfo', JSON.stringify(data))
+    localStorage.setItem("userInfo", JSON.stringify(data))
   } catch (error) {
     dispatch({
       type: USER_DETAILS_UPDATE_FAIL,
       payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+        error.response && error.response.data.message ? error.response.data.message : error.message,
     })
   }
 }
@@ -107,9 +103,7 @@ export const listUsers = () => async (dispatch, getState) => {
     dispatch({
       type: USER_LIST_FAIL,
       payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+        error.response && error.response.data.message ? error.response.data.message : error.message,
     })
   }
 }

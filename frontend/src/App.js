@@ -1,24 +1,20 @@
-import React from 'react'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
-import HomeScreen from './screens/HomeScreen'
-import LoginScreen from './screens/LoginScreen'
-import RegistrationScreen from './screens/RegistrationScreen'
-import ProfileScreen from './screens/ProfileScreen'
-import Students from './screens/Students'
-import StudentListScreen from './screens/StudentListScreen'
+import React from "react"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import { ToastContainer } from "react-toastify"
+import HomeScreen from "./screens/HomeScreen"
+import LoginScreen from "./screens/LoginScreen"
+import RegistrationScreen from "./screens/RegistrationScreen"
+import ProfileScreen from "./screens/ProfileScreen"
+import Students from "./screens/Students"
+import StudentListScreen from "./screens/StudentListScreen"
 
-const LazyPastRecruiters = React.lazy(() => import('./screens/PastRecruiters'))
-const LazyDepartmentScreen = React.lazy(() =>
-  import('./screens/DepartmentScreen')
-)
-const LazyAcademicsScreen = React.lazy(() =>
-  import('./screens/AcademicsScreen')
-)
-const LazyContactScreen = React.lazy(() => import('./screens/ContactScreen'))
-
+const LazyPastRecruiters = React.lazy(() => import("./screens/PastRecruiters"))
+const LazyDepartmentScreen = React.lazy(() => import("./screens/DepartmentScreen"))
+const LazyAcademicsScreen = React.lazy(() => import("./screens/AcademicsScreen"))
+const LazyContactScreen = React.lazy(() => import("./screens/ContactScreen"))
+const JobBoardScreen = React.lazy(() => import("./screens/JobBoardScreen"))
 const App = () => {
   return (
     <Router>
@@ -26,24 +22,25 @@ const App = () => {
       <Header />
       <main>
         <React.Suspense fallback={<div>Loading...</div>}>
-          <Route path='/' component={HomeScreen} exact />
-          <Route path='/login' component={LoginScreen} />
-          <Route path='/departments'>
+          <Route path="/" component={HomeScreen} exact />
+          <Route path="/login" component={LoginScreen} />
+          <Route path="/departments">
             <LazyDepartmentScreen />
           </Route>
-          <Route path='/pastrecruiters'>
+          <Route path="/pastrecruiters">
             <LazyPastRecruiters />
           </Route>
-          <Route path='/academics'>
+          <Route path="/academics">
             <LazyAcademicsScreen />
           </Route>
-          <Route path='/contactus'>
+          <Route path="/contactus">
             <LazyContactScreen />
           </Route>
-          <Route path='/register' component={RegistrationScreen} />
-          <Route path='/profile' component={ProfileScreen} />
-          <Route path='/students' component={Students} />
-          <Route path='/recruiter/studentlist' component={StudentListScreen} />
+          <Route path="/register" component={RegistrationScreen} />
+          <Route path="/profile" component={ProfileScreen} />
+          <Route path="/students" component={Students} />
+          <Route path="/jobboard" component={JobBoardScreen} />
+          <Route path="/recruiter/studentlist" component={StudentListScreen} />
         </React.Suspense>
       </main>
       <Footer />

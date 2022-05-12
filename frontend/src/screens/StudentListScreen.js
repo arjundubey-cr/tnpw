@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useMemo } from 'react'
-import { useTable, useSortBy } from 'react-table'
-import { Alert, Table } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
-import { listUsers } from '../redux/userDetails/userDetailsAction'
-import { toastNotification } from '../components/ToastNotif'
+import React, { useState, useEffect, useMemo } from "react"
+import { useTable, useSortBy } from "react-table"
+import { Alert, Table } from "react-bootstrap"
+import { useDispatch, useSelector } from "react-redux"
+import { listUsers } from "../redux/userDetails/userDetailsAction"
+import { toastNotification } from "../components/ToastNotif"
 
 const StudentListScreen = ({ location, history }) => {
   const dispatch = useDispatch()
@@ -15,7 +15,7 @@ const StudentListScreen = ({ location, history }) => {
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
-  const redirect = location.search ? location.search.split('=')[1] : '/'
+  const redirect = location.search ? location.search.split("=")[1] : "/"
 
   useEffect(() => {
     if (!userInfo || !userInfo.isAdmin) {
@@ -33,36 +33,36 @@ const StudentListScreen = ({ location, history }) => {
   const columns = useMemo(
     () => [
       {
-        Header: 'Roll Number',
-        accessor: 'rollNumber',
+        Header: "Roll Number",
+        accessor: "rollNumber",
       },
       {
-        Header: 'First Name',
-        accessor: 'firstName',
+        Header: "First Name",
+        accessor: "firstName",
         disableSortBy: true,
       },
       {
-        Header: 'Last Name',
-        accessor: 'lastName',
+        Header: "Last Name",
+        accessor: "lastName",
         disableSortBy: true,
       },
       {
-        Header: 'Email Address',
-        accessor: 'email',
+        Header: "Email Address",
+        accessor: "email",
         disableSortBy: true,
       },
       {
-        Header: 'CGPA',
-        accessor: 'cgpa',
+        Header: "CGPA",
+        accessor: "cgpa",
       },
       {
-        Header: 'Year of Study',
-        accessor: 'year',
+        Header: "Year of Study",
+        accessor: "year",
         disableSortBy: true,
       },
       {
-        Header: 'Resume Link',
-        accessor: 'resumeLink',
+        Header: "Resume Link",
+        accessor: "resumeLink",
         disableSortBy: true,
       },
     ],
@@ -79,31 +79,23 @@ const StudentListScreen = ({ location, history }) => {
 
   return (
     <div>
-      <Alert className='heading-button text-center font-weight-bolder'>
-        Student List
-      </Alert>
-      <div className='p-3'>
+      <Alert className="heading-button text-center font-weight-bolder">Student List</Alert>
+      <div className="p-3">
         {loading ? (
           <h2>loading</h2>
         ) : error ? (
-          toastNotification(error, 'error')
+          toastNotification(error, "error")
         ) : (
-          <Table responsive='md' bordered hover {...getTableProps()}>
+          <Table responsive="md" bordered hover {...getTableProps()}>
             <thead>
               {headerGroups.map((headerGroup) => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
                   {headerGroup.headers.map((column) => (
                     <th
                       {...column.getHeaderProps(column.getSortByToggleProps())}
-                      className='text-center bg-black'>
-                      {column.render('Header')}
-                      <span>
-                        {column.isSorted
-                          ? column.isSortedDesc
-                            ? '🔻'
-                            : '🔺'
-                          : ''}
-                      </span>
+                      className="text-center bg-black">
+                      {column.render("Header")}
+                      <span>{column.isSorted ? (column.isSortedDesc ? "🔻" : "🔺") : ""}</span>
                     </th>
                   ))}
                 </tr>
@@ -112,11 +104,21 @@ const StudentListScreen = ({ location, history }) => {
             <tbody>
               {rows.map((row, i) => {
                 prepareRow(row)
+                // console.log(row)
                 return (
                   <tr {...row.getRowProps()}>
                     {row.cells.map((cell) => {
+                      console.log(cell)
                       return (
-                        <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                        <td {...cell.getCellProps()}>
+                          {cell.column?.Header === "Resume Link" ? (
+                            <a href={cell?.value} target="_blank" rel="noreferrer">
+                              resumeLink
+                            </a>
+                          ) : (
+                            cell.render("Cell")
+                          )}
+                        </td>
                       )
                     })}
                   </tr>

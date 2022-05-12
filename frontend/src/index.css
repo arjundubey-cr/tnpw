@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap");
 
 :root {
   --primary-color: #cdb4db;
   --text-color: #333232;
-  --font-family: 'Nunito Sans', Arial, Helvetica, sans-serif;
+  --font-family: "Nunito Sans", Arial, Helvetica, sans-serif;
+  --secondary-color: #e0e0e0;
 }
 *,
 *::before,
@@ -16,11 +17,11 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 .navbar {
-  background-color: #e0e0e0 !important;
+  background-color: var(--secondary-color) !important;
 }
 body,
 p {
-  background-color: #e0e0e0 !important;
+  background-color: var(--secondary-color) !important;
   color: var(--text-color);
   font-family: var(--font-family);
 }
@@ -32,11 +33,11 @@ main {
   padding-bottom: 20px;
 }
 .shadow-neuro {
-  background: #e0e0e0 !important;
+  background: var(--secondary-color) !important;
   box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff !important;
 }
 .inward-neuro {
-  background: #e0e0e0 !important;
+  background: var(--secondary-color) !important;
   box-shadow: inset 6px 6px 12px #bebebe, inset -6px -6px 12px #ffffff !important;
 }
 /* Toastify css */
@@ -45,7 +46,7 @@ main {
   color: #18634b;
   box-shadow: 3px 3px 6px #bebebe, -3px -3px 6px #ffffff !important;
   border: 00.0625rem solid #c0c7d3 !important;
-  font-family: 'Nunito Sans' !important;
+  font-family: "Nunito Sans" !important;
   font-weight: bold;
 }
 .Toastify__toast--error {
@@ -53,7 +54,7 @@ main {
   color: #a91e2c;
   box-shadow: 3px 3px 6px #bebebe, -3px -3px 6px #ffffff !important;
   border: 00.0625rem solid #c0c7d3 !important;
-  font-family: 'Nunito Sans' !important;
+  font-family: "Nunito Sans" !important;
   font-weight: bolder;
 }
 .Toastify__close-button {
@@ -76,11 +77,11 @@ main {
   outline: 0;
 }
 .dropdown-menu {
-  background-color: #e0e0e0 !important;
+  background-color: var(--secondary-color) !important;
   box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
 }
 .navbar-toggler {
-  background-color: #e0e0e0 !important;
+  background-color: var(--secondary-color) !important;
   box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
 }
 .navbar-toggler:focus {
@@ -92,7 +93,7 @@ main {
 }
 .dropdown-item:hover,
 .dropdown-item:focus {
-  background-color: #e0e0e0 !important;
+  background-color: var(--secondary-color) !important;
   color: var(--text-color) !important;
   box-shadow: inset 2px 2px 5px #bebebe, inset -3px -3px 6px #ffffff;
 }
@@ -104,7 +105,7 @@ main {
 .ranking-card .card {
   border: none !important;
   border-radius: 25px;
-  background: #e0e0e0;
+  background: var(--secondary-color);
   box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
 }
 .heading-button {
@@ -140,7 +141,7 @@ main {
   width: 100% !important;
 }
 .department-list .card {
-  background-color: #e0e0e0;
+  background-color: var(--secondary-color);
   border: none;
   border-radius: 25px;
 }
@@ -153,23 +154,23 @@ main {
   display: block !important;
 }
 .footer {
-  background: #e0e0e0;
+  background: var(--secondary-color);
   border-top: 0.0625rem solid #c0c7d3 !important;
 }
 
 /* Login Page */
 .form-control,
 .custom-select {
-  background: #e0e0e0 !important;
+  background: var(--secondary-color) !important;
   box-shadow: inset 2px 2px 5px #bebebe, inset -3px -3px 7px #ffffff !important;
 }
 .login-card {
-  background: #e0e0e0 !important;
+  background: var(--secondary-color) !important;
   border: none !important;
 }
 .btn-primary {
-  background-color: #e0e0e0 !important;
-  border-color: #e0e0e0 !important;
+  background-color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
   color: #31344b !important;
   font-weight: 900 !important;
   -webkit-box-shadow: 2px 2px 5px #bebebe, -3px -3px 7px #ffffff;
@@ -177,8 +178,8 @@ main {
 }
 .btn-primary:hover {
   color: #31344b;
-  background-color: #e0e0e0;
-  border-color: #e0e0e0;
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
   -webkit-box-shadow: inset 2px 2px 5px #bebebe, inset -3px -3px 7px #ffffff;
   box-shadow: inset 2px 2px 5px #bebebe, inset -3px -3px 7px #ffffff;
 }
@@ -193,7 +194,7 @@ main {
   border-radius: 50%;
   width: 5.5rem;
   height: 5.5rem;
-  background: #e0e0e0 !important;
+  background: var(--secondary-color) !important;
   box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff !important;
 }
 .map {
