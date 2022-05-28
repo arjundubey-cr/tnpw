@@ -1,10 +1,11 @@
-import mongoose from 'mongoose'
-import bcrypt from 'bcryptjs'
+import mongoose from "mongoose"
+import bcrypt from "bcryptjs"
 const userSchema = mongoose.Schema(
   {
     rollNumber: {
       type: String,
       unique: true,
+      required: true,
     },
     branch: {
       type: String,
@@ -34,11 +35,11 @@ const userSchema = mongoose.Schema(
     },
     fathersName: {
       type: String,
-      default: '',
+      default: "",
     },
     mothersName: {
       type: String,
-      default: '',
+      default: "",
     },
     dob: {
       type: Date,
@@ -55,12 +56,12 @@ const userSchema = mongoose.Schema(
     },
     year: {
       type: String,
-      default: '',
+      default: "",
     },
 
     resumeLink: {
       type: String,
-      default: '',
+      default: "",
     },
   },
   {
@@ -72,13 +73,13 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password)
 }
 
-userSchema.pre('save', async function (next) {
-  if (!this.isModified('password')) {
+userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) {
     next()
   }
   const salt = await bcrypt.genSalt(10)
   this.password = await bcrypt.hash(this.password, salt)
 })
-const User = mongoose.model('User', userSchema)
+const User = mongoose.model("User", userSchema)
 
 export default User

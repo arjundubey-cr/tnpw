@@ -13,8 +13,12 @@ const jobSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  salary: {
-    type: String,
+  lowerLimitSalary: {
+    type: Number,
+    required: true,
+  },
+  upperLimitSalary: {
+    type: Number,
     required: true,
   },
   lastDateToApply: {
@@ -23,5 +27,5 @@ const jobSchema = mongoose.Schema({
   },
 })
 
-const jobDetails = mongoose.model("Job", jobSchema)
-export default jobDetails
+const JobDetails = mongoose.model("Job", jobSchema)
+export default JobDetails
