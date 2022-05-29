@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 import dotenv from "dotenv"
 
-// import users from "./data/sampleusers.js"
+import users from "./data/sampleusers.js"
 import recruiters from "./data/ourRecruiters.js"
 import departmentData from "./data/departmentData.js"
 import jobs from "./data/jobData.js"
@@ -16,11 +16,11 @@ connectDB()
 
 const importData = async () => {
   try {
-    //await User.deleteMany()
+    await User.deleteMany()
     await Recruiters.deleteMany()
     await DepartmentDetails.deleteMany()
 
-    //await User.insertMany(users)
+    await User.insertMany(users)
     await Recruiters.insertMany(recruiters)
     await DepartmentDetails.insertMany(departmentData)
     await JobDetails.insertMany(jobs)

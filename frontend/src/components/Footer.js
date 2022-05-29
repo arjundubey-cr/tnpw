@@ -34,7 +34,7 @@ const Footer = () => {
                 </a>
               </Button>
               <Button className="mail-button">
-                <a href="#">
+                <a href="www.google.com">
                   <Mail />
                 </a>
               </Button>

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
 import DisplayJobComponent from "../components/DisplayJobComponent"
+import axios from "axios"
 const listOfCompanies = [
   {
     name: "Wozart",
@@ -16,9 +17,17 @@ const listOfCompanies = [
     applied: false,
   },
 ]
+
 const JobBoardScreen = () => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${userInfo.token}`,
+    },
+  }
+  const { data } = axios.get("/api/users/companies", config)
+
   useEffect(() => {
-    fetch("/availableJobs")
+    console.log("useEffect")
   })
   return (
     <div>

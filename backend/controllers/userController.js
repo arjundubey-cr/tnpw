@@ -1,7 +1,7 @@
-import asyncHandler from 'express-async-handler'
-import User from '../models/userModel.js'
-import generateToken from '../utils/generateTokens.js'
-
+import asyncHandler from "express-async-handler"
+import User from "../models/userModel.js"
+import generateToken from "../utils/generateTokens.js"
+import JobDetails from "../models/jobBoardModel.js"
 //@desc Auth user & get token
 //@route POST /api/user/login
 //@access Public
@@ -20,7 +20,7 @@ const authUser = asyncHandler(async (req, res) => {
     })
   } else {
     res.status(401)
-    throw new Error('Invalid Roll Number or Password')
+    throw new Error("Invalid Roll Number or Password")
   }
 })
 
@@ -32,7 +32,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const userExists = await User.findOne({ rollNumber })
   if (userExists) {
     res.status(400)
-    throw new Error('User already exists')
+    throw new Error("User already exists")
   }
   const user = await User.create({
     firstName,
@@ -53,7 +53,7 @@ const registerUser = asyncHandler(async (req, res) => {
     })
   } else {
     res.status(400)
-    throw new Error('Invalid User Data')
+    throw new Error("Invalid User Data")
   }
 })
 
@@ -81,7 +81,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
     })
   } else {
     res.status(404)
-    throw new Error('User Not Found')
+    throw new Error("User Not Found")
   }
 })
 
@@ -129,7 +129,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     })
   } else {
     res.status(404)
-    throw new Error('User Not Found')
+    throw new Error("User Not Found")
   }
 })
 
@@ -142,7 +142,10 @@ const getUsers = asyncHandler(async (req, res) => {
 })
 
 //@desc Get list of companies
-//@route GET /api/companies/application
+//@route GET /api/companies
 //@access Private
-
-export { authUser, registerUser, getUserProfile, updateUserProfile, getUsers }
+const getCompanies = asyncHandler(async (req, res) => {
+  const companies = await Job.find({})
+  console.log(companies)
+})
+export { authUser, registerUser, getUserProfile, updateUserProfile, getUsers, getCompanies }
