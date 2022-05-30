@@ -1,6 +1,8 @@
 import React, { useEffect } from "react"
 import DisplayJobComponent from "../components/DisplayJobComponent"
-import axios from "axios"
+import { fetchJobs } from "../redux/jobboard/jobBoardAction"
+import { useDispatch, useSelector } from "react-redux"
+
 const listOfCompanies = [
   {
     name: "Wozart",
@@ -19,16 +21,13 @@ const listOfCompanies = [
 ]
 
 const JobBoardScreen = () => {
-  const config = {
-    headers: {
-      Authorization: `Bearer ${userInfo.token}`,
-    },
-  }
-  const { data } = axios.get("/api/users/companies", config)
-
+  const dispatch = useDispatch()
+  const jobData = useSelector((state) => state)
+  const { loading, error, data } = jobData
   useEffect(() => {
-    console.log("useEffect")
-  })
+    dispatch(fetchJobs())
+    console.log(jobData)
+  }, [dispatch])
   return (
     <div>
       <h3 className="text-center my-2 mb-3">List</h3>

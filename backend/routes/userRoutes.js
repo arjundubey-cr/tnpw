@@ -14,5 +14,5 @@ const router = express.Router()
 router.route("/").post(registerUser).get(protection, isAdmin, getUsers)
 router.post("/login", authUser)
 router.route("/profile").get(protection, getUserProfile).put(protection, updateUserProfile)
-router.route("/companies").get(protection, getCompanies)
+// router.route("/companies", getCompanies)
 export default router

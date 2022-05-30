@@ -145,7 +145,7 @@ const getUsers = asyncHandler(async (req, res) => {
 //@route GET /api/companies
 //@access Private
 const getCompanies = asyncHandler(async (req, res) => {
-  const companies = await Job.find({})
+  const companies = await JobDetails.find({})
   console.log(companies)
 })
 export { authUser, registerUser, getUserProfile, updateUserProfile, getUsers, getCompanies }
