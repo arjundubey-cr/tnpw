@@ -77,7 +77,7 @@ const Header = () => {
               <NavDropdown title="For Recruiters" id="basic-nav-dropdown">
                 <>
                   <NavDropdown.Item
-                    href="https://drive.google.com/file/d/1G1YPM_SJOeGPUsNA--H_d3zH1ncejP6x/view?usp=sharing"
+                    href="https://drive.google.com/file/d/1GiFpVAiE2ALvWJ2hIEYnEgv5ak0gPAnK/view"
                     target="_blank">
                     Brochures
                   </NavDropdown.Item>
