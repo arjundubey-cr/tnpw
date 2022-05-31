@@ -7,6 +7,7 @@ import JobDetails from "../models/jobBoardModel.js"
 //@access Public
 const authUser = asyncHandler(async (req, res) => {
   const { rollNumber, password } = req.body
+  console.log(req.body)
   const user = await User.findOne({ rollNumber })
   if (user && (await user.matchPassword(password))) {
     res.json({
@@ -17,6 +18,7 @@ const authUser = asyncHandler(async (req, res) => {
       rollNumber: user.rollNumber,
       isAdmin: user.isAdmin,
       token: generateToken(user._id),
+      appliedArray: user.appliedArray,
     })
   } else {
     res.status(401)
@@ -50,6 +52,7 @@ const registerUser = asyncHandler(async (req, res) => {
       rollNumber: user.rollNumber,
       isAdmin: user.isAdmin,
       token: generateToken(user._id),
+      appliedArray: user.appliedArray,
     })
   } else {
     res.status(400)
@@ -78,6 +81,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
       twelfthMarks: user.twelfthMarks,
       year: user.year,
       resumeLink: user.resumeLink,
+      appliedArray: user.appliedArray,
     })
   } else {
     res.status(404)
