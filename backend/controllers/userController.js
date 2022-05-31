@@ -130,6 +130,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       resumeLink: updatedUser.resumeLink,
       isAdmin: user.isAdmin,
       token: generateToken(updatedUser._id),
+      appliedArray: updatedUser.appliedArray,
     })
   } else {
     res.status(404)

@@ -41,7 +41,7 @@ export const applyJob = (jobID, userID) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     }
-    const data = await axios.post("/api/companies/apply", { jobID, userID }, config)
+    const { data } = await axios.post("/api/companies/apply", { jobID, userID }, config)
     dispatch({
       type: JOB_BOARD_APPLY_SUCCESS,
       payload: data,

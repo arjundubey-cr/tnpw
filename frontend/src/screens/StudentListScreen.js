@@ -112,9 +112,13 @@ const StudentListScreen = ({ location, history }) => {
                       return (
                         <td {...cell.getCellProps()}>
                           {cell.column?.Header === "Resume Link" ? (
-                            <a href={cell?.value} target="_blank" rel="noreferrer">
-                              resumeLink
-                            </a>
+                            cell?.value !== "" ? (
+                              <a href={cell?.value} target="_blank" rel="noreferrer">
+                                View Resume
+                              </a>
+                            ) : (
+                              "Not Available"
+                            )
                           ) : (
                             cell.render("Cell")
                           )}

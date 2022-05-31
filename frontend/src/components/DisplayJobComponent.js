@@ -12,8 +12,7 @@ const DisplayJobComponent = (props) => {
   const [applied, setApplied] = useState(false)
   useEffect(() => {
     console.log(details)
-    const dt = details.data
-    const trueOrNot = dt?.appliedArray.includes(props.props._id)
+    const trueOrNot = details?.appliedArray.includes(props.props._id)
     setApplied(trueOrNot)
   }, [details])
 

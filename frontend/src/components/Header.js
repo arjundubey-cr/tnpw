@@ -39,14 +39,14 @@ const Header = () => {
                 </LinkContainer>
               </NavDropdown>
 
-              <NavDropdown title="Team" id="basic-nav-dropdown">
+              {/* <NavDropdown title="Team" id="basic-nav-dropdown">
                 <LinkContainer to="/administration">
                   <NavDropdown.Item>Administration</NavDropdown.Item>
                 </LinkContainer>
                 <LinkContainer to="/studentteam">
                   <NavDropdown.Item>Student Team</NavDropdown.Item>
                 </LinkContainer>
-              </NavDropdown>
+              </NavDropdown> */}
               <NavDropdown title="For Students" id="basic-nav-dropdown">
                 {userInfo ? (
                   <div>
@@ -62,11 +62,8 @@ const Header = () => {
                     <NavDropdown.Item>Login</NavDropdown.Item>
                   </LinkContainer>
                 )}
-                <LinkContainer to="/resources">
+                <LinkContainer to="/resources" disabled>
                   <NavDropdown.Item>Resources</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to="/faq">
-                  <NavDropdown.Item>FAQ</NavDropdown.Item>
                 </LinkContainer>
                 {userInfo ? (
                   <NavDropdown.Item onClick={logoutHandler}>LogOut</NavDropdown.Item>
@@ -92,9 +89,11 @@ const Header = () => {
                 <LinkContainer to="/contactus">
                   <NavDropdown.Item>Contact Us</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/hiringproc">
-                  <NavDropdown.Item>Hiring Procedure</NavDropdown.Item>
-                </LinkContainer>
+                <NavDropdown.Item
+                  href="https://drive.google.com/file/d/1GiFpVAiE2ALvWJ2hIEYnEgv5ak0gPAnK/view"
+                  target="_blank">
+                  Hiring Procedure
+                </NavDropdown.Item>
                 <LinkContainer to="/pastrecruiters">
                   <NavDropdown.Item>Past Recruiters</NavDropdown.Item>
                 </LinkContainer>
